@@ -17,4 +17,5 @@
 
 Route::get('/','ThemeController@index');
 Route::get('/themes/{theme}','ThemeController@show');
+Route::post('/themes','ThemeController@store');
 

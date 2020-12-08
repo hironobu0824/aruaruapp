@@ -16,4 +16,11 @@ class ThemeController extends Controller
    {
       return view('show')->with([ 'theme' => $theme ]);
    }
+   
+   public function store(Request $request, Theme $theme)
+   {
+      $input = $request['theme'];
+      $theme->fill($input)->save();
+      return redirect('/themes/' . $theme->id);
+   }
 }

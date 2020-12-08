@@ -32,7 +32,11 @@
         <main>
             <p class="heading">新たなテーマを投稿する</p>
                 <div class="new_theme_post">
-                    
+                   <form action="/themes" method="POST">
+                       {{ csrf_field() }}
+                       <input type="text" name="theme[theme]" placeholder="テーマを投稿してね"/>
+                       <input type="submit" value="store"/>
+                   </form>
                 </div>
             <p class="heading">テーマを探す</p>
                 <div class="theme_sesrch">
