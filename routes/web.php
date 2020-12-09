@@ -18,4 +18,7 @@
 Route::get('/','ThemeController@index');
 Route::get('/themes/{theme}','ThemeController@show');
 Route::post('/themes','ThemeController@store');
+Route::get('/themes/{theme}/edit','ThemeController@edit');
+Route::put('/themes/{theme}','ThemeController@update');
+Route::delete('/themes/{theme}','ThemeController@destroy');
 

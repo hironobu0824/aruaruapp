@@ -14,18 +14,6 @@
     <body>
         <header>
             <h2>みんなのあるある</h2>
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
         </header>
         <div class="menu">
             <div class="categories">
@@ -45,6 +33,16 @@
             <div class="title">
                 <p>{{ $theme->theme }}</p>
             </div>
+            <div class="edit_button">
+                <p><a href="/themes/{{ $theme->id }}/edit">edit</a></p>
+            </div>
+            <form action="/themes/{{ $theme->id }}" id="form_delete" method="post">
+                {{ csrf_field() }}
+                {{ method_field('delete') }}
+                <input type="submit" style="display:none">
+                <p><span onclick="return deleteTheme(this);">delete</span></p>
+            </form>
+            
             <div class="posts">
                 @if (isset( $posts ))
                     @foreach ($posts as $post)
@@ -64,5 +62,13 @@
                 @endif
             </div>
         </main>
+        <script>
+            function deleteTheme(e){
+                'use strict';
+                if (confirm('削除すると復元できません。\n本当に削除しますか？')){
+                    document.getElementById('form_delete').submit();
+                }
+            }
+        </script>
     </body>
 </html>
