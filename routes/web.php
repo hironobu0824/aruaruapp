@@ -17,8 +17,11 @@
 
 Route::get('/','ThemeController@index');
 Route::get('/themes/{theme}','ThemeController@show');
+Route::get('/themes/{theme}/posts/{post}','PostController@show');
 Route::post('/themes','ThemeController@store');
 Route::get('/themes/{theme}/edit','ThemeController@edit');
 Route::put('/themes/{theme}','ThemeController@update');
 Route::delete('/themes/{theme}','ThemeController@destroy');
+Route::post('/themes/{theme}/posts','PostController@store');
+
 

@@ -7,7 +7,8 @@
         <title>みんなのあるある</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 
         
     </head>
@@ -30,9 +31,6 @@
             </div>
         </div>
         <main>
-            <div class="title">
-                <p>{{ $theme->theme }}</p>
-            </div>
             <div class="edit_button">
                 <p><a href="/themes/{{ $theme->id }}/edit">edit</a></p>
             </div>
@@ -43,24 +41,30 @@
                 <p><span onclick="return deleteTheme(this);">delete</span></p>
             </form>
             
+            <div class="title">
+                <p>{{ $theme->theme }}</p>
+            </div>
+            <div class="new_post">
+                <p>回答する</p>
+                <form action="/themes/{{ $theme->id }}/posts" method="post">
+                    {{ csrf_field() }}
+                    <input type="text" name="post[post]" placeholder="テーマを投稿してね"/>
+                    <input type="submit" value="store"/>
+                </form>
+            </div>
             <div class="posts">
-                @if (isset( $posts ))
+                @if (!$theme->posts->isEmpty())
                     @foreach ($posts as $post)
                         <div class="post">
-                            <p class="post_content"></p>
-                            <p class="user_name"></p>
-                            <p class="likes">
-                                
-                            </p>
-                            <p class="">
-                                
-                            </p>
+                            <p class="post_content"><a href="/themes/{{ $theme->id }}/posts/{{ $post->id }}">{{ $post->id }}.{{ $post->post }}</a></p>
                         </div>
                     @endforeach
+                    {{ $posts->links('pagination::semantic-ui') }}
                 @else
                    <p>投稿がありません</p>
                 @endif
             </div>
+            <div class="back"><a href='/'><i class="fas fa-long-arrow-alt-left"></i></a></div>
         </main>
         <script>
             function deleteTheme(e){

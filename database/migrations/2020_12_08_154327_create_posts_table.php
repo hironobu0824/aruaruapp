@@ -19,6 +19,7 @@ class CreatePostsTable extends Migration
             // $table->integer('user_id')->comment('ユーザID');
             $table->text('post')->comment('投稿内容');
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

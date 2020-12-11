@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Theme;
+use App\Post;
 use Illuminate\Http\Request;
 
 class ThemeController extends Controller
@@ -10,11 +11,15 @@ class ThemeController extends Controller
    public function index(Theme $theme)
    {
        return view('index')->with([ 'themes' => $theme->get() ]);
+      // dd($theme->get());
    }
    
    public function show(Theme $theme)
    {
-      return view('theme/show')->with([ 'theme' => $theme ]);
+      return view('theme/show')->with([
+         'theme' => $theme,
+         'posts' => $theme->getPostsPaginate(),
+      ]);
    }
    
    public function store(Request $request, Theme $theme)
@@ -38,7 +43,7 @@ class ThemeController extends Controller
    
    public function destroy(Theme $theme)
    {
-      $theme->delete();
+      $theme->deleteWithRelation();
       return redirect('/');
    }
 }
