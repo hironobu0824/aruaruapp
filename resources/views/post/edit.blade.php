@@ -31,12 +31,14 @@
             </div>
         </div>
         <main>
-            <div class="edit_button">
-                <p><a href="/themes/{{ $theme->id }}/posts/{{ $post->id }}/edit">edit</a></p>
-            </div>
-            <div class="posts">
-                <p>{{ $post->post }}</p>
-            </div>
+            <form action="/themes/{{ $theme->id }}/posts/{{ $post->id }}" method="POST">
+                {{ csrf_field() }}
+                @method('PUT')
+                <div class="posts">
+                    <input type='text' name='post[post]' value="{{ $post->post }}">
+                </div>
+                <input type="submit" value="更新">
+            </form>
         </main>
     </body>
 </html>
