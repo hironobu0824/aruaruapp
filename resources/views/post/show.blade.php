@@ -34,9 +34,24 @@
             <div class="edit_button">
                 <p><a href="/themes/{{ $theme->id }}/posts/{{ $post->id }}/edit">edit</a></p>
             </div>
+            <form action="/themes/{{ $theme->id }}/posts/{{ $post->id }}" id="form_delete" method="post">
+                {{ csrf_field() }}
+                {{ method_field('delete') }}
+                <input type="submit" style="display:none">
+                <p><span onclick="return deletePost(this);">delete</span></p>
+            </form>
+            
             <div class="posts">
                 <p>{{ $post->post }}</p>
             </div>
         </main>
+        <script>
+            function deletePost(e){
+                'use strict';
+                if (confirm('削除すると復元できません。\n本当に削除しますか？')){
+                    document.getElementById('form_delete').submit();
+                }
+            }
+        </script>
     </body>
 </html>

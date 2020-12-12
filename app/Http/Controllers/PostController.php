@@ -24,11 +24,11 @@ class PostController extends Controller
         
     }
     
-    public function edit($theme,$post)
+    public function edit($theme_id,$post_id)
     {
         return view('post/edit')->with([
-          'post' => Post::find($post),
-          'theme' => Theme::find($theme),
+          'post' => Post::find($post_id),
+          'theme' => Theme::find($theme_id),
         ]);
     }
     
@@ -37,5 +37,13 @@ class PostController extends Controller
         $input_post = $request['post'];
         $post->fill($input_post)->save();
         return redirect('/themes/' . $post->theme_id . '/posts/' . $post->id);
+    }
+    
+    public function destroy($theme_id,$post_id)
+    {
+        
+        $this_post = Post::find($post_id);
+        $this_post->delete();
+        return redirect('/themes/' . $theme_id );
     }
 }
