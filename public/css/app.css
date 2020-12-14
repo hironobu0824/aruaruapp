@@ -1,3 +1,18 @@
+/*====================
+スマホを基本設計にする
+ - 〜479px：スマートフォン縦
+ - 480px〜599px：スマートフォン横
+ - 600px〜959px：タブレット
+ - 960px〜1279px：小型PC
+ - 1280px〜：大型PC
+====================*/
+ 
+/*共通項目 */
+
+/*html {*/
+/*    height:100%;*/
+/*}*/
+
 a:link {
   color:#336699;
 }
@@ -25,12 +40,12 @@ span:hover {
 }
 
 body {
-    height:600px;
     font-family: 'Noto Serif JP', serif;
 }
 
 header {
     background-color:rgb(50,50,50);
+    width:100%;
     
 }
 
@@ -41,8 +56,9 @@ main {
 }
 
 section {
-   padding:30px;
+   padding:10px;
 }
+
 
 .title {
   color: rgb(255,255,255);
@@ -53,16 +69,13 @@ section {
 }
 
 .container {
-    display:flex;
     height:100%;
 }
 
-.menu {
+.menu1 {
     background-color:#EEEEEE;
-    min-width:115px;
-    max-width:150px;
-    width:20%;
     padding:30px 0;
+    height:100vh;
     
 }
 
@@ -76,6 +89,47 @@ section {
     /*background-color:pink;*/
     height:200px;
 }
+
+.menu2 {
+    max-width: 600px;
+}
+
+.menu2 a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+}
+
+label {
+    display: block;
+    padding : 10px 30px;
+    line-height: 1;
+    background-color:#EEEEEE;
+    cursor :pointer;
+    font-size:13px;
+}
+
+.menu2 > input {
+    display: none;
+}
+
+.menu2 li {
+    height: 0;
+    font-size:14px;
+    overflow: hidden;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+#menu_bar01:checked ~ #links01 li,
+#menu_bar02:checked ~ #links02 li {
+    height: 35px;
+    opacity: 1;
+}
+
 
 .heading {
     padding:0 10px;
@@ -136,3 +190,97 @@ section {
     font-size:12px;
 }
 
+ 
+
+
+
+
+
+
+/* 〜479px：SP縦
+------------------------------ */
+@media screen and (max-width:478px){
+
+.menu1 {
+    display: none;
+}
+
+}
+
+ 
+/* 480px〜599px：SP横
+------------------------------ */
+@media screen and (min-width:480px) and (max-width:599px) { 
+ 
+.menu1 {
+    display: none;
+}
+
+
+}
+ 
+/* 600px〜959px：タブレット
+------------------------------ */
+@media screen and (min-width:600px) and (max-width:959px) {
+
+.container {
+    display:flex;
+}
+
+.menu1 {
+    min-width:115px;
+    max-width:150px;
+    width:20%;
+    padding:30px 0;
+    
+}
+
+.menu2 {
+    display: none;
+}
+ 
+}
+ 
+/* 960px〜1279px：小型PC
+------------------------------ */
+@media screen and (min-width:960px) {
+ 
+.container {
+    display:flex;
+}
+
+.menu1 {
+    min-width:115px;
+    max-width:150px;
+    width:20%;
+    padding:30px 0;
+    
+}
+
+.menu2 {
+    display: none;
+}
+ 
+}
+ 
+/* 1280px〜：大型PC
+------------------------------ */
+@media screen and (min-width:1280px) {
+
+.container {
+    display:flex;
+}
+
+.menu1 {
+    min-width:115px;
+    max-width:150px;
+    width:20%;
+    padding:30px 0;
+    
+}
+
+.menu2 {
+    display: none;
+}
+ 
+}

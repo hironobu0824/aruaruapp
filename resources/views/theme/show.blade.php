@@ -19,7 +19,7 @@
             <p class="title">みんなのあるある</p>
         </header>
         <div class="container">
-            <div class="menu">
+            <div class="menu1">
                 <div class="categories">
                     <p class="menu_heading">カテゴリ</p>
                     <div class="category_list">
@@ -32,6 +32,24 @@
                         
                     </div>
                 </div>
+            </div>
+            <div class="menu2">
+                <label for="menu_bar01"><i class="fas fa-angle-down"></i>カテゴリ</label>
+                <input type="checkbox" id="menu_bar01" class="accordion" />
+                <ul id="links01">
+                    <li><a href="">Link01</a></li>
+                    <li><a href="">Link02</a></li>
+                    <li><a href="">Link03</a></li>
+                    <li><a href="">Link04</a></li>
+                </ul>
+                <label for="menu_bar02"><i class="fas fa-angle-down"></i>ユーザランキング</label>
+                <input type="checkbox" id="menu_bar02" class="accordion" />
+                <ul id="links02">
+                    <li><a href="">Link01</a></li>
+                    <li><a href="">Link02</a></li>
+                    <li><a href="">Link03</a></li>
+                    <li><a href="">Link04</a></li>
+                </ul>
             </div>
             <main>
                 <div class="title_box">
