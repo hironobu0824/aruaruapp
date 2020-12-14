@@ -78,7 +78,7 @@
                                 @if (!$post->comments->isEmpty())
                                     @foreach ($comments as $comment)
                                         <div class="comment">
-                                            <p>{{ $comment->id }}{{ $comment->body }}</p>
+                                            <p>{{ $comment->body }}</p>
                                             <div class="edit_button">
                                                 <p><a href="/themes/{{ $theme->id }}/posts/{{ $post->id }}/comments/{{ $comment->id }}/edit"><i class="far fa-edit"></i>edit</a></p>
                                             </div>
