@@ -17,14 +17,16 @@
 
 Route::get('/','ThemeController@index');
 Route::get('/themes/{theme}','ThemeController@show');
-Route::get('/themes/{theme}/posts/{post}','PostController@show');
 Route::post('/themes','ThemeController@store');
 Route::get('/themes/{theme}/edit','ThemeController@edit');
 Route::put('/themes/{theme}','ThemeController@update');
-Route::put('/themes/{theme}/posts/{post}','PostController@update');
 Route::delete('/themes/{theme}','ThemeController@destroy');
-Route::delete('/themes/{theme}/posts/{post}','PostController@destroy');
+Route::get('/themes/{theme}/posts/{post}','PostController@show');
 Route::post('/themes/{theme}/posts','PostController@store');
 Route::get('/themes/{theme}/posts/{post}/edit','PostController@edit');
-
-
+Route::put('/themes/{theme}/posts/{post}','PostController@update');
+Route::delete('/themes/{theme}/posts/{post}','PostController@destroy');
+Route::post('/themes/{theme}/posts/{post}/comments','CommentController@store');
+Route::get('/themes/{theme}/posts/{post}/comments/{comment}/edit','CommentController@edit');
+Route::put('/themes/{theme}/posts/{post}/comments/{comment}','CommentController@update');
+Route::delete('/themes/{theme}/posts/{post}/comments/{comment}','CommentController@destroy');

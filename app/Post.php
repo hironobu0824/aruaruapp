@@ -15,4 +15,19 @@ class Post extends Model
     {
         return $this->belongsTo('App\Theme');
     }
+    
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
+    
+    public function deleteWithRelation()
+    {
+        try{
+            $this->comments()->delete();
+            $this->delete();
+        } catch (\Ecxeption $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
 }

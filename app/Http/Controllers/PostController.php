@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Theme;
+use App\Comment;
 
 class PostController extends Controller
 {
@@ -15,11 +16,12 @@ class PostController extends Controller
         return redirect('/themes/' . $theme->id );
     }
     
-    public function show($theme,$post)
+    public function show($theme_id,$post_id)
     {
         return view('post/show')->with([
-          'post' => Post::find($post),
-          'theme' => Theme::find($theme),
+          'post' => Post::find($post_id),
+          'theme' => Theme::find($theme_id),
+          'comments' => Comment::where('post_id','=',$post_id)->get(),
         ]);
         
     }
@@ -41,9 +43,8 @@ class PostController extends Controller
     
     public function destroy($theme_id,$post_id)
     {
-        
         $this_post = Post::find($post_id);
-        $this_post->delete();
+        $this_post->deleteWithRelation();
         return redirect('/themes/' . $theme_id );
     }
 }
