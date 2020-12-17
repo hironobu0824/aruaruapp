@@ -11,7 +11,7 @@ class CategoryTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('category')->truncate();
+        DB::table('categories')->truncate();
         DB::table('categories')->insert([
             [
                 'name' => 'イベント、季節',
