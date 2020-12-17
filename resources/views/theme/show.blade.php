@@ -68,6 +68,13 @@
                             </form>
                         </div>
                     </div>
+                    <div class="category_box">
+                        @foreach ($theme->categories as $category)
+                            <p class="content__header__categories__item">
+                                ＃{{ $category->name }}
+                            </p>
+                        @endforeach
+                    </div>
                 </div>
                 <section class="new_post">
                     <p class="heading">回答する</p>
