@@ -57,6 +57,11 @@
                        <form action="/themes" method="POST">
                            {{ csrf_field() }}
                            <input type="text" name="theme[theme]" placeholder="テーマを投稿してね"/>
+                           <select name="theme[categories][]" multiple>
+                               @foreach ($categories as $category)
+                                   <option value="{{ $category->id }}">{{ $category->name }}</option>
+                               @endforeach
+                           </select>
                            <input type="submit" value="store"/>
                        </form>
                     </div>
