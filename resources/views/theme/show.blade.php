@@ -3,15 +3,16 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
+
         <title>みんなのあるある</title>
-        
+
         <!-- Fonts -->
         <link href="{{ secure_asset('/css/app.css') }}" rel="stylesheet">
         <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.gstatic.com">
 　　　　<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300&display=swap" rel="stylesheet">
-　　　　
+
+        
     </head>
     <body>
         <header>
@@ -51,33 +52,58 @@
                 </ul>
             </div>
             <main>
-                <section class="new_theme_post">
-                    <p class="heading">新たなテーマを投稿する</p>
+                <div class="title_box">
+                    <div class="theme_title">
+                        <p>{{ $theme->theme }}</p>
+                    </div>
+                    <div class="edit_delete_box">
+                        <div class="edit_button">
+                            <p><a href="/themes/{{ $theme->id }}/edit"><i class="far fa-edit"></i>edit</a></p>
+                        </div>
+                        <div class="delete_button">
+                            <form action="/themes/{{ $theme->id }}" id="form_delete" method="post">
+                                {{ csrf_field() }}
+                                {{ method_field('delete') }}
+                                <span class="delete_link" onclick="return deleteTheme(this);"><i class="far fa-trash-alt"></i><input type="submit" style="display:none">delete</span>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <section class="new_post">
+                    <p class="heading">回答する</p>
                     <div class="content">
-                       <form action="/themes" method="POST">
-                           {{ csrf_field() }}
-                           <input type="text" name="theme[theme]" placeholder="テーマを投稿してね"/>
-                           <input type="submit" value="store"/>
-                       </form>
+                        <form action="/themes/{{ $theme->id }}/posts" method="post">
+                            {{ csrf_field() }}
+                            <input type="text" name="post[post]" placeholder="テーマを投稿してね"/>
+                            <input type="submit" value="store"/>
+                        </form>
                     </div>
                 </section>
-                <section class="theme_sesrch">
-                    <p class="heading">テーマを探す</p>
+                <section class="posts">
+                    <p class="heading">みんなの回答</p>
                     <div class="content">
-                        
+                        @if (!$theme->posts->isEmpty())
+                            @foreach ($posts as $post)
+                                <div class="post">
+                                    <p class="post_content"><a href="/themes/{{ $theme->id }}/posts/{{ $post->id }}">{{ $post->post }}</a></p>
+                                </div>
+                            @endforeach
+                            {{ $posts->links('pagination::semantic-ui') }}
+                        @else
+                           <p>投稿がありません</p>
+                        @endif
                     </div>
                 </section>
-                <section class="popular_post_list">
-                    <p class="heading">人気テーマ</p>
-                    <div class="content">
-                        @foreach($themes as $theme)
-                          <div class="theme">
-                              <p class="theme_name"><a href="/themes/{{ $theme->id }}">{{ $theme->theme }}</a></p>
-                          </div>
-                        @endforeach
-                    </div>
-                </section>
+                <div class="back"><a href='/'><i class="fas fa-long-arrow-alt-left"></i>トップに戻る</a></div>
             </main>
         </div>
+        <script>
+            function deleteTheme(e){
+                'use strict';
+                if (confirm('削除すると復元できません。\n本当に削除しますか？')){
+                    document.getElementById('form_delete').submit();
+                }
+            }
+        </script>
     </body>
 </html>
