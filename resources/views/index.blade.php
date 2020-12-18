@@ -16,6 +16,19 @@
     <body>
         <header>
             <p class="title">みんなのあるある</p>
+            @if (Route::has('login'))
+                <div class="top-right links">
+                    @auth
+                        <a href="{{ url('/home') }}">{{ Auth::user()->name }}</a>
+                    @else
+                        <a href="{{ route('login') }}">ログイン</a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}">新規登録</a>
+                        @endif
+                    @endauth
+                </div>
+            @endif
         </header>
         <div class="container">
             <div class="menu1">

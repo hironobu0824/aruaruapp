@@ -15,18 +15,27 @@
 //     return view('welcome');
 // });
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/','ThemeController@index');
 Route::get('/themes/{theme}','ThemeController@show');
-Route::post('/themes','ThemeController@store');
-Route::get('/themes/{theme}/edit','ThemeController@edit');
-Route::put('/themes/{theme}','ThemeController@update');
-Route::delete('/themes/{theme}','ThemeController@destroy');
 Route::get('/themes/{theme}/posts/{post}','PostController@show');
-Route::post('/themes/{theme}/posts','PostController@store');
-Route::get('/themes/{theme}/posts/{post}/edit','PostController@edit');
-Route::put('/themes/{theme}/posts/{post}','PostController@update');
-Route::delete('/themes/{theme}/posts/{post}','PostController@destroy');
 Route::post('/themes/{theme}/posts/{post}/comments','CommentController@store');
 Route::get('/themes/{theme}/posts/{post}/comments/{comment}/edit','CommentController@edit');
 Route::put('/themes/{theme}/posts/{post}/comments/{comment}','CommentController@update');
 Route::delete('/themes/{theme}/posts/{post}/comments/{comment}','CommentController@destroy');
+
+Route::middleware('auth')->group(function () {
+    Route::post('/themes','ThemeController@store');
+    Route::get('/themes/{theme}/edit','ThemeController@edit');
+    Route::put('/themes/{theme}','ThemeController@update');
+    Route::delete('/themes/{theme}','ThemeController@destroy');
+    Route::post('/themes/{theme}/posts','PostController@store');
+    Route::get('/themes/{theme}/posts/{post}/edit','PostController@edit');
+    Route::put('/themes/{theme}/posts/{post}','PostController@update');
+    Route::delete('/themes/{theme}/posts/{post}','PostController@destroy');
+ });
+
+
