@@ -55,6 +55,7 @@
                 <div class="title_box">
                     <div class="theme_title">
                         <p>{{ $theme->theme }}</p>
+                        <p>auther: {{ optional($theme->user)->name }}</p>
                     </div>
                     <div class="edit_delete_box">
                         <div class="edit_button">

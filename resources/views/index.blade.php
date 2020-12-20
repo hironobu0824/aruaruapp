@@ -91,6 +91,7 @@
                         @foreach($themes as $theme)
                           <div class="theme">
                               <p class="theme_name"><a href="/themes/{{ $theme->id }}">{{ $theme->theme }}</a></p>
+                              
                           </div>
                         @endforeach
                     </div>

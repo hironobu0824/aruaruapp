@@ -16,7 +16,7 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('theme_id')->comment('テーマID');
-            // $table->integer('user_id')->comment('ユーザID');
+            $table->integer('user_id')->comment('ユーザID');
             $table->text('post')->comment('投稿内容');
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();

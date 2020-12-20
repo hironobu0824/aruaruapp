@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Theme;
 use App\Post;
 use App\Category;
+use App\User;
 use Illuminate\Http\Request;
 
 class ThemeController extends Controller
@@ -28,6 +29,7 @@ class ThemeController extends Controller
    public function store(Request $request, Theme $theme)
    {
       $input = $request['theme'];
+      $input['user_id'] = Auth::id();
       $created_theme = $theme->createWithRelation($input);
       return redirect('/themes/' . $created_theme->id);
    }
@@ -42,6 +44,7 @@ class ThemeController extends Controller
    
    public function update(Request $request, Theme $theme)
    {
+      $this->authorize('update',$theme);
       $input = $request['theme'];
       $target_theme = $theme->updateWithRelation($input);
       return redirect('/themes/' . $target_theme->id);
@@ -49,6 +52,7 @@ class ThemeController extends Controller
    
    public function destroy(Theme $theme)
    {
+      $this->authorize('delete',$theme);
       $theme->deleteWithRelation();
       return redirect('/');
    }

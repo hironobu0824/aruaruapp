@@ -9,7 +9,7 @@ class Post extends Model
 {
     use softDeletes;
     
-    protected $fillable = ['theme_id','post'];
+    protected $fillable = ['theme_id','post','user_id'];
     
     public function theme()
     {
@@ -19,6 +19,11 @@ class Post extends Model
     public function comments()
     {
         return $this->hasMany('App\Comment');
+    }
+    
+    public function user()
+    {
+        return $this->belongTo('App\User');
     }
     
     public function deleteWithRelation()

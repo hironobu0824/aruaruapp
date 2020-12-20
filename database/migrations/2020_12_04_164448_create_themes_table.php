@@ -15,7 +15,7 @@ class CreateThemesTable extends Migration
     {
         Schema::create('themes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            // $table->integer('user_id')->comment('ユーザID');
+            $table->integer('user_id')->comment('ユーザID');
             $table->string('theme')->comment('テーマ');
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();

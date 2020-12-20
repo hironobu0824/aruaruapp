@@ -12,12 +12,18 @@ class Theme extends Model
     const DEFAULT_PAGINATE_COUNT = 5;
     
     protected $fillable = [
-        'theme'    
+        'theme',
+        'user_id',
     ];
     
     public function posts()
     {
         return $this->hasMany('App\Post');
+    }
+    
+    public function user()
+    {
+        return $this->belongsTo('App\User');
     }
     
     public function categories()

@@ -54,6 +54,7 @@
             <main>
                 <div class="post_title">
                     <p>{{ $post->post }}</p>
+                    <p>auther: {{ $post->user->name }}</p>
                 </div>
                 <div class="content">
                     <div class="edit_button">
