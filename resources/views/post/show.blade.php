@@ -29,6 +29,13 @@
                     @foreach ($comments as $comment)
                         <div class="comment">
                             <p>{{ $comment->body }}</p>
+                            <div>
+                                @if($post->is_liked_by_auth_user())
+                                    <a href="{{ route('post.unlike',['id' => $post->id])  }}" class="btn">いいね<span class="badge">{{ $post->likes->count() }}</span></a>
+                                @else
+                                    <a href="{{ route('post.like',['id' => $post->id])  }}" class="btn">いいね<span class="badge">{{ $post->likes->count() }}</span></a>
+                                @endif
+                            </div>
                             <div class="edit_button">
                                 <p><a href="/themes/{{ $theme->id }}/posts/{{ $post->id }}/comments/{{ $comment->id }}/edit"><i class="far fa-edit"></i>edit</a></p>
                             </div>
