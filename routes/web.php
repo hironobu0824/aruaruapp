@@ -37,5 +37,3 @@ Route::middleware('auth')->group(function () {
     Route::put('/themes/{theme}/posts/{post}','PostController@update');
     Route::delete('/themes/{theme}/posts/{post}','PostController@destroy');
  });
-
-

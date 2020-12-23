@@ -46,8 +46,8 @@ class PostController extends Controller
     
     public function destroy($theme_id,$post_id)
     {
-        $this->authorize('delete',$post);
         $this_post = Post::find($post_id);
+        $this->authorize('delete',$this_post);
         $this_post->deleteWithRelation();
         return redirect('/themes/' . $theme_id );
     }
