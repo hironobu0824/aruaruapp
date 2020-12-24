@@ -36,6 +36,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/themes/{theme}/posts/{post}/edit','PostController@edit');
     Route::put('/themes/{theme}/posts/{post}','PostController@update');
     Route::delete('/themes/{theme}/posts/{post}','PostController@destroy');
-    Route::get('/posts/like/{id}', 'PostController@like')->name('post.like'); //ルーティングに名前
-    Route::get('/posts/unlike/{id}', 'PostController@unlike')->name('post.unlike');
+    Route::get('/themes/{theme}/posts/{post}/like', 'PostController@like')->name('post.like'); //ルーティングに名前
+    Route::get('/themes/{theme}/posts/{post}/unlike', 'PostController@unlike')->name('post.unlike');
  });

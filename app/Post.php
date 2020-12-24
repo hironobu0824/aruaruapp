@@ -28,7 +28,7 @@ class Post extends Model
     
     public function likes()
     {
-        return $this->hasMany(Like::class, 'reply_id');
+        return $this->hasMany(Like::class, 'post_id');
     }
 
     public function deleteWithRelation()
@@ -43,6 +43,7 @@ class Post extends Model
 
     public function is_liked_by_auth_user()
     {
+        // $id = 1;
         $id = Auth::id();
 
         $likers = array();

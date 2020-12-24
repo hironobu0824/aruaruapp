@@ -28,7 +28,8 @@ class PostController extends Controller
     public function store(Request $request, Theme $theme, Post $post)
     {
         $input = $request['post'];
-        $input['user_id'] = Auth::id();
+        $input['user_id'] = ;
+        // $input['user_id'] = 1;
         $theme->posts()->create($input);
         return redirect('/themes/' . $theme->id );
     }
