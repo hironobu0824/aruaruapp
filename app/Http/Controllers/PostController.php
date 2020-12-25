@@ -30,7 +30,6 @@ class PostController extends Controller
     {
         $input = $request['post'];
         $input['user_id'] = Auth::id();
-        // $input['user_id'] = 1;
         $theme->posts()->create($input);
         return redirect('/themes/' . $theme->id );
     }

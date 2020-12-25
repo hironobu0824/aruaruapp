@@ -44,7 +44,6 @@ class Post extends Model
 
     public function is_liked_by_auth_user()
     {
-        // $id = 1;
         $id = Auth::id();
 
         $likers = array();

@@ -31,6 +31,9 @@
               
           </div>
         @endforeach
+        <div class='paginate'>
+            {{ $themes->links('pagination::semantic-ui') }}
+        </div>
     </div>
 </section>
 @endsection

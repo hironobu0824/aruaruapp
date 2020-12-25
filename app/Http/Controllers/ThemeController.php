@@ -14,7 +14,7 @@ class ThemeController extends Controller
    public function index(Theme $theme, Category $category)
    {
       return view('index')->with([
-         'themes' => $theme->get(),
+         'themes' => $theme->getThemesPaginate(),
          'categories' => $category->all(),
       ]);
    }
