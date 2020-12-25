@@ -3,13 +3,14 @@
 @section('content')
 <div class="post_title">
     <p>{{ $post->post }}</p>
+    <p>auther: {{ optional($post->user)->name }}</p>
 </div>
 <div class="content">
     <div>
         @if($post->is_liked_by_auth_user())
-            <a href="{{ route('post.unlike',['theme' => $theme->id, 'post' => $post->id])  }}" class="btn">いいね<span class="badge">{{ $post->likes->count() }}</span></a>
+            <a href="{{ route('post.unlike',['id' => $post->id])  }}" class="btn">いいね<span class="badge">{{ $post->likes->count() }}</span></a>
         @else
-            <a href="{{ route('post.like',['theme' => $theme->id, 'post' => $post->id])  }}" class="btn">いいね<span class="badge">{{ $post->likes->count() }}</span></a>
+            <a href="{{ route('post.like',['id' => $post->id])  }}" class="btn">いいね<span class="badge">{{ $post->likes->count() }}</span></a>
         @endif
     </div>
     <div class="edit_button">
