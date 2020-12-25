@@ -14,17 +14,17 @@ class CategoryTableSeeder extends Seeder
         DB::table('categories')->truncate();
         DB::table('categories')->insert([
             [
+                'name' => '全般',
+                'updated_at' => now(),
+                'created_at' => now(),
+            ],  
+            [
                 'name' => '学生向け',
                 'updated_at' => now(),
                 'created_at' => now(),
             ],  
             [
                 'name' => '社会人向け',
-                'updated_at' => now(),
-                'created_at' => now(),
-            ],  
-            [
-                'name' => '全般',
                 'updated_at' => now(),
                 'created_at' => now(),
             ],  
