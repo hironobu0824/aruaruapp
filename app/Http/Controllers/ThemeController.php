@@ -19,11 +19,12 @@ class ThemeController extends Controller
       ]);
    }
    
-   public function show(Theme $theme)
+   public function show(Theme $theme, Category $category)
    {
       return view('theme/show')->with([
          'theme' => $theme,
          'posts' => $theme->getPostsPaginate(),
+         'categories' => $category->all(),
       ]);
    }
    

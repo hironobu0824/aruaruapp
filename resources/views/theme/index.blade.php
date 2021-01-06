@@ -22,21 +22,17 @@
         
     </div>
 </section>
-<section class="popular_post_list">
-    <p class="heading">人気テーマ</p>
+<section class="popular_theme_list">
     <div class="content">
-        @if (!$themes->isEmpty())
-            @foreach($themes as $theme)
-              <div class="theme">
-                  <p class="theme_name"><a href="/themes/{{ $theme->id }}">{{ $theme->theme }}</a></p>q
-              </div>
-            @endforeach
-            <div class='paginate'>
-                {{ $themes->links('pagination::semantic-ui') }}
-            </div>
-        @else
-            <p>投稿がありません</p>
-        @endif
+        @foreach($themes as $theme)
+          <div class="theme">
+              <p class="theme_name"><a href="/themes/{{ $theme->id }}">{{ $theme->theme }}</a></p>
+              
+          </div>
+        @endforeach
+        <div class='paginate'>
+            {{ $themes->links('pagination::semantic-ui') }}
+        </div>
     </div>
 </section>
 @endsection

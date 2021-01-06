@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Theme;
 use App\Comment;
+use App\Category;
 use App\User;
 use App\Like;
 use Illuminate\Support\Facades\Auth;
@@ -17,12 +18,13 @@ class PostController extends Controller
         $this->middleware(['auth', 'verified'])->only(['like', 'unlike']);
     }
 
-    public function show($theme_id,$post_id)
+    public function show($theme_id,$post_id, Category $category)
     {
         return view('post/show')->with([
           'post' => Post::find($post_id),
           'theme' => Theme::find($theme_id),
           'comments' => Comment::where('post_id','=',$post_id)->get(),
+          'categories' => $category->all(),
         ]);
     }
 
