@@ -11,20 +11,22 @@ use Illuminate\Support\Facades\Auth;
 
 class ThemeController extends Controller
 {
-   public function index(Theme $theme, Category $category)
+   public function index(Theme $theme, Category $category, User $user)
    {
       return view('index')->with([
          'themes' => $theme->getThemesPaginate(),
          'categories' => $category->all(),
+         'top_users' => $user->getTopUsers(),
       ]);
    }
    
-   public function show(Theme $theme, Category $category)
+   public function show(Theme $theme, Category $category, User $user)
    {
       return view('theme/show')->with([
          'theme' => $theme,
          'posts' => $theme->getPostsPaginate(),
          'categories' => $category->all(),
+         'top_users' => $user->getTopUsers(),
       ]);
    }
    
@@ -36,11 +38,12 @@ class ThemeController extends Controller
       return redirect('/themes/' . $created_theme->id);
    }
    
-   public function edit(Theme $theme, Category $category)
+   public function edit(Theme $theme, Category $category, User $user)
    {
       return view('theme/edit')->with([
          'theme' => $theme,
          'categories' => $category->all(),
+         'top_users' => $user->getTopUsers(),
       ]);
    }
    

@@ -17,5 +17,6 @@
             <p>投稿がありません</p>
         @endif
 　　</div>
+　　<div class="back"><a href='/'><i class="fas fa-long-arrow-alt-left"></i>トップに戻る</a></div>
 </section>
 @endsection

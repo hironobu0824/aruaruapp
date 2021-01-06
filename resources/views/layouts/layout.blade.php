@@ -45,7 +45,11 @@
                 <div class="user_ranking">
                     <p class="menu_heading">ユーザー<br>ランキング</p>
                     <div class="user_ranking_list">
-                        
+                        <ol id="links02">
+                            @foreach ($top_users as $user)
+                                <li><a href="">{{ $user->name }}({{ $user->posts()->count() }})</a></li>
+                            @endforeach
+                        </ol>
                     </div>
                 </div>
             </div>
@@ -59,12 +63,11 @@
                 </ul>
                 <label for="menu_bar02"><i class="fas fa-angle-down"></i>ユーザランキング</label>
                 <input type="checkbox" id="menu_bar02" class="accordion" />
-                <ul id="links02">
-                    <li><a href="">Link01</a></li>
-                    <li><a href="">Link02</a></li>
-                    <li><a href="">Link03</a></li>
-                    <li><a href="">Link04</a></li>
-                </ul>
+                <ol id="links02">
+                    @foreach ($top_users as $user)
+                        <li><a href="">{{ $user->name }}</a></li>
+                    @endforeach
+                </ol>
             </div>
             <main>
                 @yield('content')

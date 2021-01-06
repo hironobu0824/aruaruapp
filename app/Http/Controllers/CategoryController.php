@@ -11,12 +11,13 @@ use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
-    public function index(Category $category)
+    public function index(Category $category, User $user)
     {
         return view('category/index')->with([
             'categories' => $category->all(),
             'category' => $category,
             'category_themes' => $category->getThemesPaginate(),
+            'top_users' => $user->getTopUsers(),
         ]);
     }
 }

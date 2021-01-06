@@ -18,13 +18,14 @@ class PostController extends Controller
         $this->middleware(['auth', 'verified'])->only(['like', 'unlike']);
     }
 
-    public function show($theme_id,$post_id, Category $category)
+    public function show($theme_id,$post_id, Category $category, User $user)
     {
         return view('post/show')->with([
           'post' => Post::find($post_id),
           'theme' => Theme::find($theme_id),
           'comments' => Comment::where('post_id','=',$post_id)->get(),
           'categories' => $category->all(),
+          'top_users' => $user->getTopUsers(),
         ]);
     }
 
