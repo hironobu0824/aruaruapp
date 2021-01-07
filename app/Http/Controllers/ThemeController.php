@@ -34,7 +34,11 @@ class ThemeController extends Controller
    {
       $input = $request['theme'];
       $input['user_id'] = Auth::id();
-      $created_theme = $theme->createWithRelation($input);
+      if(empty($input['categories'])){
+         $created_theme = $theme->create($input);
+      }else{
+         $created_theme = $theme->createWithRelation($input);
+      }
       return redirect('/themes/' . $created_theme->id);
    }
    

@@ -49,7 +49,6 @@ class User extends Authenticatable
 
     public function getTopUsers()
     {
-        $users = User::withCount('posts')->orderBy('posts_count','desc')->paginate(3);
-        return $users;
+        return User::withCount('posts')->orderBy('posts_count','desc')->paginate(3);
     }
 }

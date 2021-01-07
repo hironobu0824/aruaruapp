@@ -46,26 +46,45 @@ body {
 header {
     background-color:rgb(50,50,50);
     width:100%;
-    
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    position:relative;
+    height:70px;
 }
 
 main {
     padding:30px 100px 30px 30px;
     width:80%;
-    /*background-color:#FFFFBB;*/
 }
 
 section {
    padding:10px;
 }
 
-
 .title {
-  color: rgb(255,255,255);
   font-size:22px;
   padding:10px 40px;
-  border:thin solid black;
-  
+  position:absolute;
+  top:10px;
+  left:0px;
+}
+
+.title_button > a,.top-right > a {
+    text-decoration:none;
+    color:white;
+}
+
+.title_button > a:hover{
+    color:#CCCCCC;
+}
+
+.top-right > a:hover {
+    color:#CCCCCC;
+}
+
+.register_login {
+    padding:20px;
 }
 
 .container {
@@ -76,17 +95,14 @@ section {
     background-color:#EEEEEE;
     padding:30px 0;
     height:100vh;
-    
 }
 
 .menu_heading {
     border-bottom:thin solid black;
     margin:16px;
-    /*background-color:green;*/
 }
 
 .categories,.user_ranking {
-    /*background-color:pink;*/
     height:200px;
 }
 
@@ -96,11 +112,10 @@ section {
 
 .menu2 a {
     display: block;
-    padding: 10px 15px;
     text-decoration: none;
 }
 
-label {
+.label1 {
     display: block;
     padding : 10px 30px;
     line-height: 1;
@@ -115,7 +130,7 @@ label {
 
 .menu2 li {
     height: 0;
-    font-size:14px;
+    font-size:13px;
     overflow: hidden;
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
@@ -126,10 +141,14 @@ label {
 
 #menu_bar01:checked ~ #links01 li,
 #menu_bar02:checked ~ #links02 li {
-    height: 35px;
+    height: 30px;
     opacity: 1;
 }
 
+#links01,#links02 {
+    font-size:13px;
+    line-height:2;
+}
 
 .heading {
     padding:0 10px;
@@ -148,38 +167,34 @@ label {
 .title_box {
     min-width:300px;
     max-width:600px;
-    padding:20px 10px;
-    /*background-color:#F0FFFF;*/
+    padding:15px 10px;
     position:relative;
-    /*border:solid 2px #D9E5FF;*/
     border-left:solid 8px #D9E5FF;
 }
 
 .edit_delete_box {
-    position:absolute;
-    right:10px;
-    bottom:20px;
+    padding:10px 0 0px 10px;
 }
+
 
 .edit_button {
     display:inline-block;
-    padding-right:10px;
+    padding-right:5px;
+    font-size:13px;
 }
 
-.delete_button {
+.delete_button,.like_button {
     display:inline-block;
+    font-size:13px;
+}
+
+.category_show {
+    display:flex;
+    flex-wrap:wrap;
 }
 
 .post {
     padding:10px 0;
-    
-    
-}
-
-.post_title {
-    margin:30px 10px 0;
-    padding:5px 10px ;
-    border-left:solid 8px #D9E5FF;
 }
 
 .comments {
@@ -187,15 +202,92 @@ label {
 }
 
 .back {
+    font-size:14px;
+}
+
+.label2 {
+    display: block;
+    padding : 5px 5px;
+    cursor :pointer;
+    font-size:13px;
+}
+
+.checkbox {
+    display:flex;
+    flex-wrap:wrap;
+}
+
+.detail {
+    font-size:13px;
+    padding:20px 3px 10px;
+    color:gray;
+}
+
+.submit_button {
+    padding:0px 20px;
+    margin:20px 30px 0;
     font-size:12px;
 }
 
- 
+.theme_detail,.post_detail {
+    font-size:14px;
+    color:gray;
+    padding:0 10px;
+}
 
+.theme_explain,.post_explain {
+    position:absolute;
+    right:-30px;
+    top:0px;
+    width:200px;
+}
 
+.theme,.post {
+    display:flex;
+    flex-wrap:wrap;
+    flex-direction:column;
+    min-width:350px;
+    max-width:650px;
+    border-bottom:solid 1px gray;
+    padding-bottom:10px;
+    margin-bottom:10px;
+}
 
+.theme_index_explain,.post_index_explain {
+    display:flex;
+    flex-wrap:wrap;
+    padding:20px;
+}
 
+.theme_name,.post_name {
+    padding:10px 20px;
+}
 
+.comment {
+    display:flex;
+    justify-content:flex-end;
+    padding:2px 0;
+    margin:10px 20px;
+    width:250px;
+    position:relative;
+    border-bottom:dashed 1px #BBBBBB;
+}
+
+.comment_form {
+    padding:0 20px 10px;
+}
+
+.comment_text {
+    font-size:13px;
+    padding-right:20px;
+    position:absolute;
+    top:0px;
+    left:2px;
+}
+
+.pagination {
+     text-align:center;
+}
 
 /* 〜479px：SP縦
 ------------------------------ */
@@ -228,8 +320,8 @@ label {
 }
 
 .menu1 {
-    min-width:115px;
-    max-width:150px;
+    min-width:140px;
+    max-width:160px;
     width:20%;
     padding:30px 0;
     
@@ -250,8 +342,8 @@ label {
 }
 
 .menu1 {
-    min-width:115px;
-    max-width:150px;
+    min-width:140px;
+    max-width:160px;
     width:20%;
     padding:30px 0;
     
@@ -272,8 +364,8 @@ label {
 }
 
 .menu1 {
-    min-width:115px;
-    max-width:150px;
+    min-width:140px;
+    max-width:160px;
     width:20%;
     padding:30px 0;
     

@@ -15,20 +15,23 @@
     </head>
     <body>
         <header>
-            <p class="title">みんなのあるある</p>
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">{{ Auth::user()->name }}</a>
-                    @else
-                        <a href="{{ route('login') }}">ログイン</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">新規登録</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
+            <div class="title_button">
+                <a href="/"><p class="title">みんなのあるある</p></a>
+            </div>
+            <div class="register_login">
+                @if (Route::has('login'))
+                    <div class="top-right links">
+                        @auth
+                            <a href="{{ url('/home') }}">{{ Auth::user()->name }}</a>
+                        @else
+                            <a href="{{ route('login') }}">ログイン</a>
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}">新規登録</a>
+                            @endif
+                        @endauth
+                    </div>
+                @endif
+            </div>
         </header>
         <div class="container">
             <div class="menu1">
@@ -54,14 +57,14 @@
                 </div>
             </div>
             <div class="menu2">
-                <label for="menu_bar01"><i class="fas fa-angle-down"></i>カテゴリ</label>
+                <label class="label1" for="menu_bar01"><i class="fas fa-angle-down"></i>カテゴリ</label>
                 <input type="checkbox" id="menu_bar01" class="accordion" />
                 <ul id="links01">
                     @foreach ($categories as $category)
                         <li><a href="/categories/{{ $category->id }}">{{ $category->name }}</a></li>
                     @endforeach
                 </ul>
-                <label for="menu_bar02"><i class="fas fa-angle-down"></i>ユーザランキング</label>
+                <label class="label1"  for="menu_bar02"><i class="fas fa-angle-down"></i>ユーザランキング</label>
                 <input type="checkbox" id="menu_bar02" class="accordion" />
                 <ol id="links02">
                     @foreach ($top_users as $user)

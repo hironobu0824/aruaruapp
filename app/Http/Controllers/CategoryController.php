@@ -15,7 +15,7 @@ class CategoryController extends Controller
     {
         return view('category/index')->with([
             'categories' => $category->all(),
-            'category' => $category,
+            'the_category' => $category,
             'category_themes' => $category->getThemesPaginate(),
             'top_users' => $user->getTopUsers(),
         ]);

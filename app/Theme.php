@@ -9,7 +9,7 @@ class Theme extends Model
 {
     use SoftDeletes;
     
-    const DEFAULT_PAGINATE_COUNT = 10;
+    const DEFAULT_PAGINATE_COUNT = 5;
     
     protected $fillable = [
         'theme',
@@ -33,7 +33,7 @@ class Theme extends Model
     
     public function getThemesPaginate()
     {
-        return $this->orderBy('updated_at')->paginate(self::DEFAULT_PAGINATE_COUNT);
+        return Theme::withCount('posts')->orderBy('posts_count','desc')->paginate(self::DEFAULT_PAGINATE_COUNT);
     }
 
     public function getPostsPaginate()

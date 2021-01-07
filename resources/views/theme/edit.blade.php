@@ -1,24 +1,32 @@
 @extends('layouts.layout')
 
 @section('content')
-<form action="/themes/{{ $theme->id }}" method="POST">
-    {{ csrf_field() }}
-    @method('PUT')
-    <div class="theme">
-        <p>テーマ</p>
-        <input type='text' name='theme[theme]' value="{{ $theme->theme }}">
-        <p>カテゴリ</p>
-        <select name="theme[categories][]" multiple>
-            @foreach ($categories as $category)
-                <option value="{{ $category->id }}"
-                    @if (in_array($category->id,$theme->categories->pluck('id')->all()))
-                        selected
-                    @endif
-                    >{{ $category->name }}</option>
-            @endforeach
-        </select>
+<section>
+    <p class="heading">テーマ編集する</p>
+    <div class="content">
+        <form action="/themes/{{ $theme->id }}" method="POST">
+            {{ csrf_field() }}
+            @method('PUT')
+            <input type='text' name='theme[theme]' value="{{ $theme->theme }}">
+            <p class="detail">カテゴリ選択（複数選択可、必須）</p>
+            <div class="checkbox">
+                <input type="hidden" name="theme[categories]" value="">
+                @foreach ($categories as $category)
+                    <label class="label2">
+                        <input type="checkbox" name="theme[categories][]" value="{{ $category->id }}"
+                        @if (in_array($category->id,$theme->categories->pluck('id')->all()))
+                            checked
+                        @endif
+                        >{{ $category->name }}
+                    </label>
+                @endforeach
+            </div>
+            <input class="submit_button" type="submit" value="更新">
+        </form>q
     </div>
-    <input type="submit" value="更新">
-</form>
-<div class="back"><a href='/'><i class="fas fa-long-arrow-alt-left"></i>トップに戻る</a></div>
+</section>
+<div class="back">
+    <a href='/themes/{{ $theme->id }}'><i class="fas fa-long-arrow-alt-left"></i>前に戻る</a><br/>
+    <a href='/'><i class="fas fa-long-arrow-alt-left"></i>トップに戻る</a>
+</div>
 @endsection

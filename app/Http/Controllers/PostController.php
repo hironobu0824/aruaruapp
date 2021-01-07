@@ -37,11 +37,13 @@ class PostController extends Controller
         return redirect('/themes/' . $theme->id );
     }
     
-    public function edit($theme_id,$post_id)
+    public function edit($theme_id, $post_id, Category $category, User $user)
     {
         return view('post/edit')->with([
           'post' => Post::find($post_id),
           'theme' => Theme::find($theme_id),
+          'categories' => $category->all(),
+          'top_users' => $user->getTopUsers(),
         ]);
     }
     

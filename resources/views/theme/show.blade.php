@@ -4,7 +4,6 @@
 <div class="title_box">
     <div class="theme_title">
         <p>{{ $theme->theme }}</p>
-        <p>auther: {{ optional($theme->user)->name }}</p>
     </div>
     <div class="edit_delete_box">
         <div class="edit_button">
@@ -18,12 +17,17 @@
             </form>
         </div>
     </div>
-    <div class="category_box">
-        @foreach ($theme->categories as $category)
-            <p class="content__header__categories__item">
-                ＃{{ $category->name }}
-            </p>
-        @endforeach
+    <div class="theme_explain">
+        <p class="theme_detail">{{ date('Y/m/d',strtotime($theme->created_at)) }}</p>
+        <p class="theme_detail">by {{ optional($theme->user)->name }}</p>
+        <p class="theme_detail">投稿数：{{ $theme->posts()->count() }}</p>
+        <div class="category_show">
+            @foreach ($theme->categories as $category)
+                <p class="theme_detail">
+                    ＃{{ $category->name }}
+                </p>
+            @endforeach
+        </div>
     </div>
 </div>
 <section class="new_post">
@@ -42,10 +46,18 @@
         @if (!$theme->posts->isEmpty())
             @foreach ($posts as $post)
                 <div class="post">
-                    <p class="post_content"><a href="/themes/{{ $theme->id }}/posts/{{ $post->id }}">{{ $post->post }}</a></p>
+                    <p class="post_name"><a href="/themes/{{ $theme->id }}/posts/{{ $post->id }}">{{ $post->post }}</a></p>
+                    <div class="post_index_explain">
+                        <p class="post_detail">{{ date('Y/m/d',strtotime($post->created_at)) }}</p>
+                        <p class="post_detail">by {{ optional($post->user)->name }}</p>
+                        <p class="post_detail">いいね数：{{ $post->likes->count() }}</p>
+                        <p class="post_detail">コメント数：{{ $post->comments()->count() }}</p>
+                    </div>
                 </div>
             @endforeach
-            {{ $posts->links('pagination::semantic-ui') }}
+            <div class="pagination">
+                {{ $posts->links('pagination::semantic-ui') }}
+            </div>
         @else
            <p>投稿がありません</p>
         @endif

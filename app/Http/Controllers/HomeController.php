@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Theme;
+use App\Post;
+use App\Category;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -21,8 +26,11 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Category $category, User $user)
     {
-        return view('home');
+        return view('home')->with([
+            'categories' => $category->all(),
+            'top_users' => $user->getTopUsers(),
+        ]);
     }
 }
