@@ -57,7 +57,7 @@
                         </div>
                     @endforeach
                 @else
-                    <p class="comment_text">投稿がありません</p>
+                    <p class="detail">コメントがありません</p>
                 @endif
             </div>
         </div>

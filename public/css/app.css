@@ -164,6 +164,10 @@ section {
     font-size:20px;
 }
 
+.post_title {
+    width:10px;
+    background-color:pink;
+}
 .title_box {
     min-width:300px;
     max-width:600px;
