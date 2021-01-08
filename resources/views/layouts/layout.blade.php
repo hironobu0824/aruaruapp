@@ -7,7 +7,8 @@
         <title>みんなのあるある</title>
         
         <!-- Fonts -->
-        <link href="{{ secure_asset('/css/app.css') }}" rel="stylesheet">
+        <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
+        <!--<link href="{{ secure_asset('/css/app.css') }}" rel="stylesheet">-->
         <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.gstatic.com">
 　　　　<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300&display=swap" rel="stylesheet">
