@@ -20,12 +20,6 @@
        </form>
     </div>
 </section>
-<section class="theme_sesrch">
-    <p class="heading">テーマを探す</p>
-    <div class="content">
-        
-    </div>
-</section>
 <section class="popular_theme_list">
     <p class="heading">人気テーマ</p>
     <div class="content">

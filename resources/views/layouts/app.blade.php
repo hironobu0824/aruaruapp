@@ -1,83 +1,53 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-</head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a href="{{ url('/') }}">
-                <!--<a class="navbar-brand" href="{{ url('/') }}">-->
-                    <!--{{ config('app.name', 'Laravel') }}-->
-                    ホーム画面
-                </a>
-                <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">-->
-                <!--    <span class="navbar-toggler-icon"></span>-->
-                <!--</button>-->
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <title>みんなのあるある</title>
+        
+        <!-- Fonts -->
+        <link href="{{ secure_asset('/css/app.css') }}" rel="stylesheet">
+        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+　　　　<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300&display=swap" rel="stylesheet">
+　　　　
+    </head>
+    <body>
+        <header>
+            <div class="title_button">
+                <a href="/"><p class="title">みんなのあるある</p></a>
             </div>
-        </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
-</body>
+            <div class="register_login">
+                @guest
+                    <div class="top-right links">
+                        <a class="nav-link" href="{{ route('login') }}">ログイン</a>
+                    @if (Route::has('register'))
+                        <a class="nav-link" href="{{ route('register') }}" style="padding-left:5px;">新規登録</a>
+                    @endif
+                    </div>
+                @else
+                    <div class="top-right links">
+                        <a href="/home">
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
+                        <a id="logout" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                            ログアウト
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
+                @endguest
+            </div>
+        </header>
+        <div class="container">
+            <main>
+                @yield('content')
+            </main>
+        </div>
+        @yield('js')
+    </body>
 </html>
-

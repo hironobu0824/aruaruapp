@@ -2,9 +2,7 @@
 
 @section('content')
 <div class="title_box">
-    <div class="post_title">
-        <p>{{ $post->post }}</p>
-    </div>
+    <p class="post_title">{{ $post->post }}</p>
     <div class="edit_delete_box">
         <div class="edit_button">
             <p><a href="/themes/{{ $theme->id }}/posts/{{ $post->id }}/edit"><i class="far fa-edit"></i>edit</a></p>
@@ -29,7 +27,6 @@
         <p class="post_detail">by {{ optional($post->user)->name }}</p>
         <p class="post_detail">コメント数：{{ $post->comments()->count() }}</p>
     </div>
-
 </div>
     <section class="comments">
         <p class="heading">コメント</p>

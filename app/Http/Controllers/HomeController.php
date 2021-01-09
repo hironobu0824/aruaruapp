@@ -26,11 +26,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index(Category $category, User $user)
+    public function index(User $user)
     {
         return view('home')->with([
-            'categories' => $category->all(),
-            'top_users' => $user->getTopUsers(),
+            
         ]);
     }
 }
