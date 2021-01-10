@@ -45,6 +45,9 @@ span:hover {
     color:#000000;
 }
 
+ul {
+    list-style:none;
+} 
 
 header {
     background-color:rgb(50,50,50);
@@ -326,8 +329,12 @@ section {
 }
 
 #links01,#links02 {
-    font-size:13px;
+    font-size:14px;
     line-height:2;
+}
+
+.side_links {
+    padding:0px 17px;
 }
 
 main {
@@ -431,7 +438,7 @@ main {
     display:flex;
     flex-wrap:wrap;
     flex-direction:column;
-    min-width:350px;
+    /*min-width:240px;*/
     max-width:650px;
     border-bottom:solid 1px gray;
     padding-bottom:10px;
@@ -485,6 +492,16 @@ main {
     display: none;
 }
 
+.content {
+    padding:20px 0px;
+}
+
+main {
+    padding:0px;
+    margin:20px auto;
+    width:88%;
+}
+
 }
 
 /* 480px〜599px：SP横
@@ -493,6 +510,16 @@ main {
  
 .menu1 {
     display: none;
+}
+
+.content {
+    padding:20px 0px;
+}
+
+main {
+    padding:0px;
+    margin:20px auto;
+    width:88%;
 }
 
 }
