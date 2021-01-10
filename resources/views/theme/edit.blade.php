@@ -22,7 +22,7 @@
                 @endforeach
             </div>
             <input class="submit_button" type="submit" value="更新">
-        </form>q
+        </form>
     </div>
 </section>
 <div class="back">

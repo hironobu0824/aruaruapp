@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Theme;
 use App\Comment;
+use App\Category;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
@@ -16,12 +19,14 @@ class CommentController extends Controller
         return redirect('/themes/' . $theme->id . '/posts/' . $post->id );
     }
     
-    public function edit($theme_id,$post_id,$comment_id)
+    public function edit($theme_id,$post_id,$comment_id, Category $category, User $user)
     {
         return view('comment/edit')->with([
           'post' => Post::find($post_id),
           'theme' => Theme::find($theme_id),
           'comment' => Comment::find($comment_id),
+          'categories' => $category->all(),
+          'top_users' => $user->getTopUsers(),
         ]);
     }
     

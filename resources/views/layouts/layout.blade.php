@@ -10,8 +10,7 @@
         <link href="{{ secure_asset('/css/app.css') }}" rel="stylesheet">
         <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.gstatic.com">
-　　　　<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300&display=swap" rel="stylesheet">
-　　　　
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300&display=swap" rel="stylesheet">
     </head>
     <body>
         <header>
@@ -31,6 +30,24 @@
                         @endauth
                     </div>
                 @endif
+            </div>
+            <div id="register_login_2">
+                <div>
+                    <a href="#register_login_2" class="menuopen"><i class="fas fa-bars"></i></a>
+                    <a href="#close" class="menuclose"><i class="fas fa-times"></i></a>
+                </div>
+                <ul>
+                    @if (Route::has('login'))
+                        @auth
+                            <li><a href="{{ url('/home') }}">{{ Auth::user()->name }}</a></li>
+                        @else
+                            <li><a href="{{ route('login') }}">ログイン</a></li>
+                            @if (Route::has('register'))
+                                <li><a href="{{ route('register') }}">新規登録</a></li>
+                            @endif
+                        @endauth
+                    @endif
+                </ul>
             </div>
         </header>
         <div class="container">

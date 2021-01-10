@@ -1,4 +1,4 @@
-*====================
+/*====================
 スマホを基本設計にする
  - 〜479px：スマートフォン縦
  - 480px〜599px：スマートフォン横
@@ -9,9 +9,15 @@
  
 /*共通項目 */
 
-/*html {*/
-/*    height:100%;*/
-/*}*/
+* {
+    margin:0px;
+}
+
+body {
+    font-family: 'Noto Serif JP', serif;
+    /*height:100%;*/
+    padding:0px;
+}
 
 a:link {
   color:#336699;
@@ -35,13 +41,6 @@ span:hover {
     color:#000000;
 }
 
-* {
-    margin:0px;
-}
-
-body {
-    font-family: 'Noto Serif JP', serif;
-}
 
 header {
     background-color:rgb(50,50,50);
@@ -53,9 +52,110 @@ header {
     height:70px;
 }
 
-main {
-    padding:30px 100px 30px 30px;
-    width:80%;
+.title_button > a,.top-right > a {
+    text-decoration:none;
+    color:white;
+}
+
+.title_button > a:hover{
+    color:#CCCCCC;
+}
+
+.register_login {
+    display:none;
+}
+
+
+#register_login_2 a {
+    text-decoration:none;
+    color:white;
+}
+
+#register_login_2 a:hover {
+    color:#CCCCCC;
+}
+
+/****メニュー全体****/
+#register_login_2{
+	/*配置*/
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	z-index: 100;
+}
+
+/****メニュー開閉ボタン****/
+#register_login_2 div {
+	/*デザイン*/
+	width: 70px;
+	height: 70px;
+	/*配置*/
+	overflow: hidden;
+	position: absolute;
+	right: 0;
+}
+
+#register_login_2 .menuopen{
+	/*デザイン*/
+	color: rgba(255,255,255,1);
+	font-size: 25px;
+	/*配置*/
+	display: block;
+	position: absolute;
+	top: 15px;
+	left: 25px;
+	pointer-events: auto;
+}
+
+#register_login_2 .menuclose{
+	/*デザイン*/
+	color: rgba(255,255,255,1);
+	font-size: 25px;
+	display: none;
+	position: absolute;
+	top: 15px;
+	left: 25px;
+	pointer-events: auto;
+}
+
+/****メニュー一覧****/
+#register_login_2 ul{
+	/*デザイン*/
+	width: 90px;
+	/*配置*/
+	position: absolute;
+	top: 70px;/*#menu divの高さ*/
+	right: 0;
+	display: none;
+	list-style: none;
+}
+
+#register_login_2 li{
+	/*デザイン*/
+	background-color:#888888;
+	padding: 10px 13px;
+	color: white;
+	font-size:14px;
+	pointer-events: auto;
+}
+
+/****メニューオープン時****/
+#register_login_2:target .menuopen{
+	/*配置*/
+	display: none;
+}
+
+#register_login_2:target .menuclose{
+	/*配置*/
+	display: block;
+}
+
+#register_login_2:target ul{
+	/*配置*/
+	display: block;
 }
 
 section {
@@ -148,31 +248,10 @@ section {
 
 .title {
   font-size:22px;
-  padding:10px 40px;
+  padding:10px 10px;
   position:absolute;
   top:10px;
-  left:0px;
-}
-
-.title_button > a,.top-right > a {
-    text-decoration:none;
-    color:white;
-}
-
-.title_button > a:hover{
-    color:#CCCCCC;
-}
-
-.top-right > a:hover {
-    color:#CCCCCC;
-}
-
-.register_login {
-    padding:20px;
-}
-
-.container {
-    height:100%;
+  left:10px;
 }
 
 .user_data_detail {
@@ -183,8 +262,6 @@ section {
 
 .menu1 {
     background-color:#EEEEEE;
-    padding:30px 0;
-    height:100vh;
 }
 
 .menu_heading {
@@ -238,6 +315,11 @@ section {
 #links01,#links02 {
     font-size:13px;
     line-height:2;
+}
+
+main {
+    padding:40px 100px 40px 40px;
+    width:70%;
 }
 
 .heading {
@@ -383,6 +465,8 @@ section {
      text-align:center;
 }
 
+
+
 /* 〜479px：SP縦
 ------------------------------ */
 @media screen and (max-width:478px){
@@ -402,8 +486,105 @@ section {
     width:400px;
 }
 
+
+.register_login {
+    display:none;
 }
 
+
+#register_login_2 a {
+    text-decoration:none;
+    color:white;
+}
+
+#register_login_2 a:hover {
+    color:#CCCCCC;
+}
+
+/****メニュー全体****/
+#register_login_2{
+	/*配置*/
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	z-index: 100;
+}
+
+/****メニュー開閉ボタン****/
+#register_login_2 div {
+	/*デザイン*/
+	width: 70px;
+	height: 70px;
+	/*配置*/
+	overflow: hidden;
+	position: absolute;
+	right: 0;
+}
+
+#register_login_2 .menuopen{
+	/*デザイン*/
+	color: rgba(255,255,255,1);
+	font-size: 25px;
+	/*配置*/
+	display: block;
+	position: absolute;
+	top: 15px;
+	left: 25px;
+	pointer-events: auto;
+}
+
+#register_login_2 .menuclose{
+	/*デザイン*/
+	color: rgba(255,255,255,1);
+	font-size: 25px;
+	display: none;
+	position: absolute;
+	top: 15px;
+	left: 25px;
+	pointer-events: auto;
+}
+
+/****メニュー一覧****/
+#register_login_2 ul{
+	/*デザイン*/
+	width: 90px;
+	/*配置*/
+	position: absolute;
+	top: 70px;/*#menu divの高さ*/
+	right: 0;
+	display: none;
+	list-style: none;
+}
+
+#register_login_2 li{
+	/*デザイン*/
+	background-color:#888888;
+	padding: 10px 13px;
+	color: white;
+	font-size:14px;
+	pointer-events: auto;
+}
+
+/****メニューオープン時****/
+#register_login_2:target .menuopen{
+	/*配置*/
+	display: none;
+}
+
+#register_login_2:target .menuclose{
+	/*配置*/
+	display: block;
+}
+
+#register_login_2:target ul{
+	/*配置*/
+	display: block;
+}
+
+}
  
 /* 480px〜599px：SP横
 ------------------------------ */
@@ -424,7 +605,105 @@ section {
     width:500px;
 }
 
+.register_login {
+    display:none;
 }
+
+
+#register_login_2 a {
+    text-decoration:none;
+    color:white;
+}
+
+#register_login_2 a:hover {
+    color:#CCCCCC;
+}
+
+/****メニュー全体****/
+#register_login_2{
+	/*配置*/
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	z-index: 100;
+}
+
+/****メニュー開閉ボタン****/
+#register_login_2 div {
+	/*デザイン*/
+	width: 70px;
+	height: 70px;
+	/*配置*/
+	overflow: hidden;
+	position: absolute;
+	right: 0;
+}
+
+#register_login_2 .menuopen{
+	/*デザイン*/
+	color: rgba(255,255,255,1);
+	font-size: 25px;
+	/*配置*/
+	display: block;
+	position: absolute;
+	top: 15px;
+	left: 25px;
+	pointer-events: auto;
+}
+
+#register_login_2 .menuclose{
+	/*デザイン*/
+	color: rgba(255,255,255,1);
+	font-size: 25px;
+	display: none;
+	position: absolute;
+	top: 15px;
+	left: 25px;
+	pointer-events: auto;
+}
+
+/****メニュー一覧****/
+#register_login_2 ul{
+	/*デザイン*/
+	width: 90px;
+	/*配置*/
+	position: absolute;
+	top: 70px;/*#menu divの高さ*/
+	right: 0;
+	display: none;
+	list-style: none;
+}
+
+#register_login_2 li{
+	/*デザイン*/
+	background-color:#888888;
+	padding: 10px 13px;
+	color: white;
+	font-size:14px;
+	pointer-events: auto;
+}
+
+/****メニューオープン時****/
+#register_login_2:target .menuopen{
+	/*配置*/
+	display: none;
+}
+
+#register_login_2:target .menuclose{
+	/*配置*/
+	display: block;
+}
+
+#register_login_2:target ul{
+	/*配置*/
+	display: block;
+}
+
+}
+
  
 /* 600px〜959px：タブレット
 ------------------------------ */
@@ -446,6 +725,10 @@ section {
     display: none;
 }
 
+.register_login {
+    padding:20px;
+}
+
 .title_box {
     min-width:300px;
     max-width:600px;
@@ -456,9 +739,18 @@ section {
 .theme_explain,.post_explain {
     width:500px;
 }
- 
+
+.register_login {
+    display:block;
 }
- 
+
+#register_login_2 {
+    display:none;
+}
+
+}
+
+
 /* 960px〜1279px：小型PC
 ------------------------------ */
 @media screen and (min-width:960px) {
@@ -479,6 +771,10 @@ section {
     display: none;
 }
 
+.register_login {
+    padding:20px;
+}
+
 .title_box {
     min-width:300px;
     max-width:800px;
@@ -492,6 +788,15 @@ section {
     right:0px;
     top:0px;
     width:300px;
+}
+
+.register_login {
+    display:block;
+}
+
+
+#register_login_2 {
+    display:none;
 }
 
 }
@@ -516,6 +821,10 @@ section {
     display: none;
 }
 
+.register_login {
+    padding:20px;
+}
+
 .title_box {
     min-width:300px;
     max-width:800px;
@@ -529,6 +838,15 @@ section {
     right:0px;
     top:0px;
     width:300px;
+}
+
+.register_login {
+    display:block;
+}
+
+
+#register_login_2 {
+    display:none;
 }
  
 }
