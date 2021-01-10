@@ -25,8 +25,10 @@
             @enderror
             <input type="submit" class="mail_submit_button" value="メールを送信する"/>
         </form>
-        <div class="back"><a href='/login'><i class="fas fa-long-arrow-alt-left"></i>ログイン画面に戻る</a></div>
-        <div class="back"><a href='/'><i class="fas fa-long-arrow-alt-left"></i>トップに戻る</a></div>
+        <div class="back">
+            <a href='/login'><i class="fas fa-long-arrow-alt-left"></i>ログイン画面に戻る</a></br>
+            <a href='/'><i class="fas fa-long-arrow-alt-left"></i>トップに戻る</a>
+        </div>
     </div>
 </section>
 @endsection
