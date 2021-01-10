@@ -61,9 +61,9 @@
         @else
            <p>投稿がありません</p>
         @endif
+        <div class="back"><a href='/'><i class="fas fa-long-arrow-alt-left"></i>トップに戻る</a></div>
     </div>
 </section>
-<div class="back"><a href='/'><i class="fas fa-long-arrow-alt-left"></i>トップに戻る</a></div>
 @endsection
 
 @section('js')

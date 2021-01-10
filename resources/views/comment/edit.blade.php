@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.layout2')
 
 @section('content')
 <section>
@@ -12,8 +12,10 @@
             </div>
             <input class="submit_button" type="submit" value="更新">
         </form>
+        <div class="back">
+            <a href='/themes/{{ $theme->id }}/posts/{{ $post->id }}'><i class="fas fa-long-arrow-alt-left"></i>前に戻る</a></br>
+            <a href='/'><i class="fas fa-long-arrow-alt-left"></i>トップに戻る</a>
+        </div>
     </div>
-    <div class="back"><a href='/themes/{{ $theme->id }}/posts/{{ $post->id }}'><i class="fas fa-long-arrow-alt-left"></i>前に戻る</a></div>
-    <div class="back"><a href='/'><i class="fas fa-long-arrow-alt-left"></i>トップに戻る</a></div>
 </section>
 @endsection

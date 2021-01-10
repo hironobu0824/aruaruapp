@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.layout2')
 
 @section('content')
 <div class="title_box">
@@ -57,12 +57,12 @@
                     <p class="detail">コメントがありません</p>
                 @endif
             </div>
+            <div class="back">
+                <a href='/themes/{{ $theme->id }}'><i class="fas fa-long-arrow-alt-left"></i>前に戻る</a><br/>
+                <a href='/'><i class="fas fa-long-arrow-alt-left"></i>トップに戻る</a>
+            </div>
         </div>
     </section>
-    <div class="back">
-        <a href='/themes/{{ $theme->id }}'><i class="fas fa-long-arrow-alt-left"></i>前に戻る</a><br/>
-        <a href='/'><i class="fas fa-long-arrow-alt-left"></i>トップに戻る</a>
-    </div>
 @endsection
 @section('js')      
 <script>
