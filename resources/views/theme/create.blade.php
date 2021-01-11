@@ -8,7 +8,7 @@
            {{ csrf_field() }}
            <input type="text" name="theme[theme]" placeholder="テーマを投稿してね" value="{{ old('theme.theme') }}"/>
            <p class="error_message">{{ $errors->first('theme.theme') }}</p>
-           <p class="detail">カテゴリ選択（複数選択可、必須）</p>
+           <p class="detail">カテゴリ選択（複数選択可）</p>
            <div class="checkbox">
                <input type="hidden" name="theme[categories]" value="">
                @foreach ($categories as $category)

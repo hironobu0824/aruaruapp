@@ -20,14 +20,14 @@
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
-            <p class="register_heading">パスワード</p>
+            <p class="register_heading">パスワード<span class="limit_letters">（8文字以上）</span></p>
             <input class="register_input" type="password" name="password" required autocomplete="new-password">
                 @error('password')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
-            <p class="register_heading">パスワード（確認）</p>
+            <p class="register_heading">パスワード<span class="limit_letters">（確認）</span></p>
             <input class="register_input" type="password" name="password_confirmation" required autocomplete="new-password">
             <input class="register_button" type="submit" value="新規ユーザー登録する"/>
         </form>

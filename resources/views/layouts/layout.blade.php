@@ -59,6 +59,7 @@
                     <p class="menu_heading">テーマを探す</p>
                     <div class="category_list">
                         <ul id="links01" class="side_links">
+                            <li><a href="/">人気のテーマ</a></li>
                             <li><a href="/new">最新のテーマ</a></li>
                             @foreach ($categories as $category)
                                 <li><a href="/categories/{{ $category->id }}">{{ $category->name }}</a></li>
@@ -82,6 +83,7 @@
                 <label class="label1" for="menu_bar01"><i class="fas fa-angle-down"></i>テーマを探す</label>
                 <input type="checkbox" id="menu_bar01" class="accordion" />
                 <ul id="links01">
+                    <li><a href="/">人気のテーマ</a></li>
                     <li><a href="/new">最新のテーマ</a></li>
                     @foreach ($categories as $category)
                         <li><a href="/categories/{{ $category->id }}">{{ $category->name }}</a></li>

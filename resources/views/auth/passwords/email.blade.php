@@ -8,8 +8,7 @@
         パスワード再設定ページへのメールをお送りします。</p>
         @if (session('status'))
             <div class="alert alert-success" role="alert">
-                <!--{{ session('status') }}-->
-                メールが送信されました
+                {{ session('status') }}
             </div>
         @endif
         <form method="POST" action="{{ route('password.email') }}">

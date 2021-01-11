@@ -624,6 +624,10 @@ main {
     display:none;
 }
 
+.register_box,.login_box {
+    margin:30px auto;
+}
+
 }
 
 
@@ -671,6 +675,10 @@ main {
     display:none;
 }
 
+.register_box,.login_box {
+    margin:30px auto;
+}
+
 }
  
 /* 1280px〜：大型PC
@@ -705,4 +713,9 @@ main {
     display:none;
 }
  
+.register_box,.login_box {
+    margin:30px auto;
+}
+
+
 }
