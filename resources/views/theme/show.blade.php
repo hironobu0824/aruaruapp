@@ -52,9 +52,15 @@
                     <p class="post_name"><a href="/themes/{{ $theme->id }}/posts/{{ $post->id }}">{{ $post->post }}</a></p>
                     <div class="post_index_explain">
                         <p class="post_detail">{{ date('Y/m/d',strtotime($post->created_at)) }}</p>
-                        <p class="post_detail">by {{ optional($post->user)->name }}</p>
-                        <p class="post_detail">いいね数：{{ $post->likes->count() }}</p>
+                        <p class="post_detail">by {{ optional($post->user)->name }}</p></br>
                         <p class="post_detail">コメント数：{{ $post->comments()->count() }}</p>
+                        <div class="post_detail">
+                            @if($post->is_liked_by_auth_user())
+                                <a href="{{ route('post.unlike',['id' => $post->id])  }}"><i class="far fa-thumbs-up"></i>いいね&ensp;{{ $post->likes->count() }}</a>
+                            @else
+                                <a href="{{ route('post.like',['id' => $post->id])  }}"><i class="far fa-thumbs-up"></i>いいね&ensp;{{ $post->likes->count() }}</a>
+                            @endif
+                        </div>
                     </div>
                 </div>
             @endforeach

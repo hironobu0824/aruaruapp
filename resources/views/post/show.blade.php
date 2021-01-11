@@ -16,18 +16,18 @@
             </form>
         </div>
     @endif
-        <div class="like_button">
-            @if($post->is_liked_by_auth_user())
-                <a href="{{ route('post.unlike',['id' => $post->id])  }}" class="btn">いいね<span class="badge">{{ $post->likes->count() }}</span></a>
-            @else
-                <a href="{{ route('post.like',['id' => $post->id])  }}" class="btn">いいね<span class="badge">{{ $post->likes->count() }}</span></a>
-            @endif
-        </div>
     </div>
     <div class="post_explain">
         <p class="post_detail">{{ date('Y/m/d',strtotime($post->created_at)) }}</p>
         <p class="post_detail">by {{ optional($post->user)->name }}</p>
         <p class="post_detail">コメント数：{{ $post->comments()->count() }}</p>
+        <p class="post_detail">
+            @if($post->is_liked_by_auth_user())
+                <a href="{{ route('post.unlike',['id' => $post->id])  }}"><i class="far fa-thumbs-up"></i>いいね&ensp;{{ $post->likes->count() }}</a>
+            @else
+                <a href="{{ route('post.like',['id' => $post->id])  }}"><i class="far fa-thumbs-up"></i>いいね&ensp;{{ $post->likes->count() }}</a>
+            @endif
+        </p>
     </div>
 </div>
     <section class="comments">
@@ -59,6 +59,9 @@
                             </div>
                         </div>
                     @endforeach
+                    <div class="pagination">
+                        {{ $comments->links('pagination::semantic-ui') }}
+                    </div>
                 @else
                     <p class="detail">コメントがありません</p>
                 @endif

@@ -4,12 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Auth;
 
 class Theme extends Model
 {
     use SoftDeletes;
     
-    const DEFAULT_PAGINATE_COUNT = 5;
+    const DEFAULT_PAGINATE_COUNT = 15;
     
     protected $fillable = [
         'theme',

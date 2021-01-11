@@ -401,10 +401,6 @@ main {
     flex-wrap:wrap;
 }
 
-.comments {
-    padding:20px 0;
-}
-
 .back {
     font-size:14px;
     padding:30px 0;
@@ -450,17 +446,15 @@ main {
     display:flex;
     flex-wrap:wrap;
     flex-direction:column;
-    /*min-width:240px;*/
     max-width:650px;
-    border-bottom:solid 1px gray;
+    border-bottom:dashed 1px #BBBBBB;
     padding-bottom:10px;
-    margin-bottom:10px;
 }
 
 .theme_index_explain,.post_index_explain {
     display:flex;
     flex-wrap:wrap;
-    padding:20px;
+    padding:5px 22px 5px 35px;
 }
 
 .theme_name,.post_name {
@@ -513,6 +507,10 @@ main {
 .limit_letters {
     font-size:10px;
     color:gray;
+}
+
+.post_detail > a {
+    text-decoration:none;
 }
 
 
@@ -575,7 +573,6 @@ main {
     right:15px;
     margin:0;
 }
-
 
 }
 

@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
+    const DEFAULT_PAGINATE_COUNT = 15;
+
     public function __construct()
     {
         $this->middleware(['auth', 'verified'])->only(['like', 'unlike']);
@@ -24,7 +26,7 @@ class PostController extends Controller
         return view('post/show')->with([
           'post' => Post::find($post_id),
           'theme' => Theme::find($theme_id),
-          'comments' => Comment::where('post_id','=',$post_id)->get(),
+          'comments' => Comment::where('post_id','=',$post_id)->orderBy('created_at','desc')->paginate(self::DEFAULT_PAGINATE_COUNT),
           'categories' => $category->all(),
           'top_users' => $user->getTopUsers(),
         ]);
