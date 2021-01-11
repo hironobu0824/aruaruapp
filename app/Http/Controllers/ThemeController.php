@@ -14,8 +14,25 @@ class ThemeController extends Controller
 {
    public function index(Theme $theme, Category $category, User $user)
    {
-      return view('index')->with([
-         'themes' => $theme->getThemesPaginate(),
+      return view('theme/index')->with([
+         'themes' => $theme->getPopularThemesPaginate(),
+         'categories' => $category->all(),
+         'top_users' => $user->getTopUsers(),
+      ]);
+   }
+
+   public function new (Theme $theme, Category $category, User $user)
+   {
+      return view('theme/new_index')->with([
+         'themes' => $theme->getNewThemesPaginate(),
+         'categories' => $category->all(),
+         'top_users' => $user->getTopUsers(),
+      ]);
+   }
+
+   public function create (Theme $theme, Category $category, User $user)
+   {
+      return view('theme/create')->with([
          'categories' => $category->all(),
          'top_users' => $user->getTopUsers(),
       ]);

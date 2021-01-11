@@ -52,10 +52,14 @@
         </header>
         <div class="container">
             <div class="menu1">
+                <div class="theme_create">
+                    <p><a href="/create">新たなテーマを</br>作成する</a></p>
+                </div>
                 <div class="categories">
-                    <p class="menu_heading">カテゴリ</p>
+                    <p class="menu_heading">テーマを探す</p>
                     <div class="category_list">
                         <ul id="links01" class="side_links">
+                            <li><a href="/new">最新のテーマ</a></li>
                             @foreach ($categories as $category)
                                 <li><a href="/categories/{{ $category->id }}">{{ $category->name }}</a></li>
                             @endforeach
@@ -74,9 +78,11 @@
                 </div>
             </div>
             <div class="menu2">
-                <label class="label1" for="menu_bar01"><i class="fas fa-angle-down"></i>カテゴリ</label>
+                <label class="label1"><p><a href="/create">新たなテーマを作成する</a></p></label>
+                <label class="label1" for="menu_bar01"><i class="fas fa-angle-down"></i>テーマを探す</label>
                 <input type="checkbox" id="menu_bar01" class="accordion" />
                 <ul id="links01">
+                    <li><a href="/new">最新のテーマ</a></li>
                     @foreach ($categories as $category)
                         <li><a href="/categories/{{ $category->id }}">{{ $category->name }}</a></li>
                     @endforeach

@@ -35,11 +35,11 @@
 <section class="new_post">
     <p class="heading">回答する<span class="limit_letters">(最大200字)</span></p>
     <div class="content">
-        <form action="/themes/{{ $theme->id }}/posts" method="post">
+        <form  class="post_form" action="/themes/{{ $theme->id }}/posts" method="post">
             {{ csrf_field() }}
             <input type="text" name="post[post]" placeholder="テーマを投稿してね" value="{{ old('post.post') }}"/>
             <p class="error_message">{{ $errors->first('post.post') }}</p>
-            <input type="submit" value="store"/>
+            <input class="submit_button2" type="submit" value="送信"/>
         </form>
     </div>
 </section>

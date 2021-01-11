@@ -20,6 +20,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/','ThemeController@index');
+Route::get('/new','ThemeController@new');
+Route::get('/create','ThemeController@create');
 Route::get('/user/{user}','UserController@show');
 Route::get('/categories/{category}','CategoryController@index');
 Route::get('/themes/{theme}','ThemeController@show');

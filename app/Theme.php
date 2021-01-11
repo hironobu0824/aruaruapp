@@ -31,14 +31,19 @@ class Theme extends Model
         return $this->belongsToMany('App\Category');
     }
     
-    public function getThemesPaginate()
+    public function getPopularThemesPaginate()
     {
         return Theme::withCount('posts')->orderBy('posts_count','desc')->paginate(self::DEFAULT_PAGINATE_COUNT);
     }
 
+    public function getNewThemesPaginate()
+    {
+        return $this->orderBy('created_at','desc')->paginate(self::DEFAULT_PAGINATE_COUNT);
+    }
+
     public function getPostsPaginate()
     {
-        return $this->posts()->orderBy('updated_at')->paginate(self::DEFAULT_PAGINATE_COUNT);
+        return $this->posts()->orderBy('created_at','desc')->paginate(self::DEFAULT_PAGINATE_COUNT);
     }
     
     public function createWithRelation($input)

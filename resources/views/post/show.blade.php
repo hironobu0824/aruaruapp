@@ -37,7 +37,7 @@
                 {{ csrf_field() }}
                 <input type="text" name="comment[body]" placeholder="コメントしてみてね(匿名)" value="{{ old('comment.body') }}"/>
                 <p class="error_message">{{ $errors->first('comment.body') }}</p>
-                <input type="submit" class="submit_button" value="送信"/>
+                <input type="submit" class="submit_button2" value="送信"/>
             </form>
             <div class="comment_list">
                 @if (!$post->comments->isEmpty())
