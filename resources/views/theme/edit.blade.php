@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.layout2')
 
 @section('content')
 <section>
@@ -8,6 +8,7 @@
             {{ csrf_field() }}
             @method('PUT')
             <input type='text' name='theme[theme]' value="{{ $theme->theme }}">
+            <p class="error_message">{{ $errors->first('theme.theme') }}</p>
             <p class="detail">カテゴリ選択（複数選択可、必須）</p>
             <div class="checkbox">
                 <input type="hidden" name="theme[categories]" value="">
@@ -22,11 +23,11 @@
                 @endforeach
             </div>
             <input class="submit_button" type="submit" value="更新">
-        </form>q
+        </form>
+        <div class="back">
+            <a href='/themes/{{ $theme->id }}'><i class="fas fa-long-arrow-alt-left"></i>前に戻る</a><br/>
+            <a href='/'><i class="fas fa-long-arrow-alt-left"></i>トップに戻る</a>
+        </div>
     </div>
 </section>
-<div class="back">
-    <a href='/themes/{{ $theme->id }}'><i class="fas fa-long-arrow-alt-left"></i>前に戻る</a><br/>
-    <a href='/'><i class="fas fa-long-arrow-alt-left"></i>トップに戻る</a>
-</div>
 @endsection

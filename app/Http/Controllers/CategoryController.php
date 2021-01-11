@@ -13,11 +13,11 @@ class CategoryController extends Controller
 {
     public function index(Category $category, User $user)
     {
-        return view('category/index')->with([
-            'categories' => $category->all(),
-            'the_category' => $category,
-            'category_themes' => $category->getThemesPaginate(),
-            'top_users' => $user->getTopUsers(),
-        ]);
+      return view('category/index')->with([
+         'themes' => $category->getThemesPaginate(),
+         'categories' => $category->all(),
+         'top_users' => $user->getTopUsers(),
+         'the_category' => $category,
+      ]);
     }
 }

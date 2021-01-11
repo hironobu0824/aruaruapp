@@ -4,12 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Auth;
 
 class Theme extends Model
 {
     use SoftDeletes;
     
-    const DEFAULT_PAGINATE_COUNT = 5;
+    const DEFAULT_PAGINATE_COUNT = 15;
     
     protected $fillable = [
         'theme',
@@ -31,14 +32,19 @@ class Theme extends Model
         return $this->belongsToMany('App\Category');
     }
     
-    public function getThemesPaginate()
+    public function getPopularThemesPaginate()
     {
         return Theme::withCount('posts')->orderBy('posts_count','desc')->paginate(self::DEFAULT_PAGINATE_COUNT);
     }
 
+    public function getNewThemesPaginate()
+    {
+        return $this->orderBy('created_at','desc')->paginate(self::DEFAULT_PAGINATE_COUNT);
+    }
+
     public function getPostsPaginate()
     {
-        return $this->posts()->orderBy('updated_at')->paginate(self::DEFAULT_PAGINATE_COUNT);
+        return $this->posts()->orderBy('created_at','desc')->paginate(self::DEFAULT_PAGINATE_COUNT);
     }
     
     public function createWithRelation($input)

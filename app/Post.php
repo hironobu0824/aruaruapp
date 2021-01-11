@@ -10,6 +10,8 @@ class Post extends Model
 {
     use softDeletes;
     
+    const DEFAULT_PAGINATE_COUNT = 15;
+
     protected $fillable = ['theme_id','post','user_id'];
     
     public function theme()

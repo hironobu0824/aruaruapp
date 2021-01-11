@@ -1,8 +1,8 @@
 @extends('layouts.layout')
 
 @section('content')
-<section class="category_theme_list">
-    <p class="heading">{{ $the_category->name }}</p>
+<section class="popular_theme_list">
+    <p class="heading">最新のテーマ</p>
     <div class="content">
         @if (!$themes->isEmpty())
             @foreach($themes as $theme)
@@ -26,7 +26,6 @@
         @else
             <p>投稿がありません</p>
         @endif
-        <div class="back"><a href='/'><i class="fas fa-long-arrow-alt-left"></i>トップに戻る</a></div>
     </div>
 </section>
 @endsection

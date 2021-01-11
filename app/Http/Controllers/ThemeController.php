@@ -7,14 +7,32 @@ use App\Post;
 use App\Category;
 use App\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\ThemeRequest;
 use Illuminate\Support\Facades\Auth;
 
 class ThemeController extends Controller
 {
    public function index(Theme $theme, Category $category, User $user)
    {
-      return view('index')->with([
-         'themes' => $theme->getThemesPaginate(),
+      return view('theme/index')->with([
+         'themes' => $theme->getPopularThemesPaginate(),
+         'categories' => $category->all(),
+         'top_users' => $user->getTopUsers(),
+      ]);
+   }
+
+   public function new (Theme $theme, Category $category, User $user)
+   {
+      return view('theme/new_index')->with([
+         'themes' => $theme->getNewThemesPaginate(),
+         'categories' => $category->all(),
+         'top_users' => $user->getTopUsers(),
+      ]);
+   }
+
+   public function create (Theme $theme, Category $category, User $user)
+   {
+      return view('theme/create')->with([
          'categories' => $category->all(),
          'top_users' => $user->getTopUsers(),
       ]);
@@ -30,7 +48,7 @@ class ThemeController extends Controller
       ]);
    }
    
-   public function store(Request $request, Theme $theme)
+   public function store(ThemeRequest $request, Theme $theme)
    {
       $input = $request['theme'];
       $input['user_id'] = Auth::id();
@@ -51,7 +69,7 @@ class ThemeController extends Controller
       ]);
    }
    
-   public function update(Request $request, Theme $theme)
+   public function update(ThemeRequest $request, Theme $theme)
    {
       $this->authorize('update',$theme);
       $input = $request['theme'];

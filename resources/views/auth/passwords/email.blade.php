@@ -8,8 +8,7 @@
         パスワード再設定ページへのメールをお送りします。</p>
         @if (session('status'))
             <div class="alert alert-success" role="alert">
-                <!--{{ session('status') }}-->
-                メールが送信されました
+                {{ session('status') }}
             </div>
         @endif
         <form method="POST" action="{{ route('password.email') }}">
@@ -25,8 +24,10 @@
             @enderror
             <input type="submit" class="mail_submit_button" value="メールを送信する"/>
         </form>
-        <div class="back"><a href='/login'><i class="fas fa-long-arrow-alt-left"></i>ログイン画面に戻る</a></div>
-        <div class="back"><a href='/'><i class="fas fa-long-arrow-alt-left"></i>トップに戻る</a></div>
+        <div class="back">
+            <a href='/login'><i class="fas fa-long-arrow-alt-left"></i>ログイン画面に戻る</a></br>
+            <a href='/'><i class="fas fa-long-arrow-alt-left"></i>トップに戻る</a>
+        </div>
     </div>
 </section>
 @endsection

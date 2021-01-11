@@ -50,7 +50,7 @@
                 </ul>
             </div>
         </header>
-        <div class="container">
+        <div class="container2">
             <div class="menu1">
                 <div class="theme_create">
                     <p><a href="/create">新たなテーマを</br>作成する</a></p>
@@ -58,7 +58,7 @@
                 <div class="categories">
                     <p class="menu_heading">テーマを探す</p>
                     <div class="category_list">
-                        <ul id="links01" class="side_links">
+                        <ul id="links01">
                             <li><a href="/">人気のテーマ</a></li>
                             <li><a href="/new">最新のテーマ</a></li>
                             @foreach ($categories as $category)
