@@ -9,6 +9,7 @@
             @method('PUT')
             <div class="posts">
                 <input type='text' name='comment[body]' value="{{ $comment->body }}">
+                <p class="error_message">{{ $errors->first('comment.body') }}</p>
             </div>
             <input class="submit_button" type="submit" value="更新">
         </form>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\PostRequest;
 use App\Post;
 use App\Theme;
 use App\Comment;
@@ -29,7 +30,7 @@ class PostController extends Controller
         ]);
     }
 
-    public function store(Request $request, Theme $theme, Post $post)
+    public function store(PostRequest $request, Theme $theme, Post $post)
     {
         $input = $request['post'];
         $input['user_id'] = Auth::id();
@@ -47,7 +48,7 @@ class PostController extends Controller
         ]);
     }
     
-    public function update(Request $request,$theme_id, Post $post)
+    public function update(PostRequest $request,$theme_id, Post $post)
     {
         $this->authorize('update',$post);
         $input_post = $request['post'];

@@ -372,6 +372,7 @@ main {
     max-width:600px;
     padding:15px 10px;
     border-left:solid 8px #D9E5FF;
+    min-height:60px;
 }
 
 .edit_delete_box {
@@ -459,8 +460,7 @@ main {
 .comment {
     display:flex;
     justify-content:flex-end;
-    padding:2px 0;
-    margin:10px 20px;
+    padding:10px 20px;
     width:250px;
     position:relative;
     border-bottom:dashed 1px #BBBBBB;
@@ -474,13 +474,37 @@ main {
     font-size:13px;
     padding-right:20px;
     position:absolute;
-    top:0px;
-    left:2px;
+    top:10px;
+    left:10px;
+}
+
+.comment_detail {
+    font-size:10px;
+    color:gray;
+    width:100px;
+}
+
+.comment_edit_delete {
+    display:flex;
+    flex-wrap:wrap;
 }
 
 .pagination {
      text-align:center;
 }
+
+.error_message {
+    font-size:10px;
+    color:red;
+}
+
+.limit_letters {
+    font-size:10px;
+    color:gray;
+}
+
+
+
 
 
 
@@ -597,15 +621,22 @@ main {
 }
 
 .title_box {
-    max-width:800px;
+    max-width:700px;
     position:relative;
+    display:flex;
+    justify-content:flex-end;
 }
 
-.theme_explain,.post_explain {
+.edit_delete_box{
     position:absolute;
-    right:0px;
-    top:0px;
-    width:400px;
+    left:15px;
+    bottom:15px;
+}
+
+.theme_title,.post_title {
+    position:absolute;
+    left:10px;
+    top:12px;
 }
 
 .register_login {

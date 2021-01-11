@@ -7,6 +7,7 @@ use App\Post;
 use App\Category;
 use App\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\ThemeRequest;
 use Illuminate\Support\Facades\Auth;
 
 class ThemeController extends Controller
@@ -30,7 +31,7 @@ class ThemeController extends Controller
       ]);
    }
    
-   public function store(Request $request, Theme $theme)
+   public function store(ThemeRequest $request, Theme $theme)
    {
       $input = $request['theme'];
       $input['user_id'] = Auth::id();
@@ -51,7 +52,7 @@ class ThemeController extends Controller
       ]);
    }
    
-   public function update(Request $request, Theme $theme)
+   public function update(ThemeRequest $request, Theme $theme)
    {
       $this->authorize('update',$theme);
       $input = $request['theme'];

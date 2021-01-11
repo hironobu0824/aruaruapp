@@ -8,6 +8,7 @@
             {{ csrf_field() }}
             @method('PUT')
             <input type='text' name='theme[theme]' value="{{ $theme->theme }}">
+            <p class="error_message">{{ $errors->first('theme.theme') }}</p>
             <p class="detail">カテゴリ選択（複数選択可、必須）</p>
             <div class="checkbox">
                 <input type="hidden" name="theme[categories]" value="">
