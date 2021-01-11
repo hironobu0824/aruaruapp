@@ -4,7 +4,7 @@
 <div class="title_box">
     <p class="post_title">{{ $post->post }}</p>
     <div class="edit_delete_box">
-    @if($post->user->name === auth()->user()->name )
+    @if($post->user->name === optional(auth()->user())->name )
         <div class="edit_button">
             <p><a href="/themes/{{ $theme->id }}/posts/{{ $post->id }}/edit"><i class="far fa-edit"></i>edit</a></p>
         </div>
@@ -46,7 +46,7 @@
                             <p class="comment_text">{{ $comment->body }}</p>
                             <div class="comment_detail">
                                 <p>by {{ optional($comment->user)->name }}</p>
-                                @if($comment->user->name === auth()->user()->name )
+                                @if($comment->user->name === optional(auth()->user())->name )
                                     <div class="comment_edit_delete">
                                         <p><a href="/themes/{{ $theme->id }}/posts/{{ $post->id }}/comments/{{ $comment->id }}/edit"><i class="far fa-edit"></i>edit</a></p>
                                         <form action="/themes/{{ $theme->id }}/posts/{{ $post->id }}/comments/{{ $comment->id }}" id="form_delete_comment" method="post">

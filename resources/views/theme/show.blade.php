@@ -5,7 +5,7 @@
     <div class="theme_title">
         <p>{{ $theme->theme }}</p>
     </div>
-    @if($theme->user->name === auth()->user()->name )
+    @if($theme->user->name === optional(auth()->user())->name )
         <div class="edit_delete_box">
             <div class="edit_button">
                 <p><a href="/themes/{{ $theme->id }}/edit"><i class="far fa-edit"></i>edit</a></p>
