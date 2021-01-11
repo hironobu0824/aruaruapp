@@ -15,6 +15,6 @@ class Category extends Model
 
     public function getThemesPaginate()
     {
-        return $this->themes()->orderBy('created_at')->paginate(self::DEFAULT_PAGINATE_COUNT);
+        return $this->themes()->orderBy('created_at','desc')->paginate(self::DEFAULT_PAGINATE_COUNT);
     }
 }
