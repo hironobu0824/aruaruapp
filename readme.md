@@ -1,6 +1,6 @@
 
  ## DEMO
- <img src="https://github.com/{your_name}/laravel_caliculam/blob/master/sample_gif.gif" width="700">
+ <img src="https://raw.githubusercontent.com/wiki/hironobu0824/aruaruapp/gif/aruaru.gif" width="700">
  
  ## 動作確認環境
  - Amazon Linux 
