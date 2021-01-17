@@ -28,10 +28,10 @@ https://aruaruapphironobu.herokuapp.com/
 ## 初期設定
 ```
 $ git clone https://github.com/hironobu0824/aruaruapp.git
+$ composer install
 $ cp .env.example .env
 $ vi .env // DB + Mailのデータを書き換える
 $ php artisan key:generate
-$ composer install
 ```
 
 ## DB設定
