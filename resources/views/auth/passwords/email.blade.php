@@ -16,12 +16,12 @@
             <label for="email"><p class="password_reset_heading">メールアドレス</p></label>
             <div class="mail_input">
                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-            </div>
             @error('email')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
+            </div>
             <input type="submit" class="mail_submit_button" value="メールを送信する"/>
         </form>
         <div class="back">

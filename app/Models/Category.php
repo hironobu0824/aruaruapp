@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,7 +10,7 @@ class Category extends Model
 
     public function themes()
     {
-        return $this->belongsToMany('App\Theme');
+        return $this->belongsToMany('App\Models\Theme');
     }
 
     public function getThemesPaginate()

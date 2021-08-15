@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\CommentRequest;
-use App\Post;
-use App\Theme;
-use App\Comment;
-use App\Category;
-use App\User;
+use App\Models\Post;
+use App\Models\Theme;
+use App\Models\Comment;
+use App\Models\Category;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller

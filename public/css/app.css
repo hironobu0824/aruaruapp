@@ -41,9 +41,15 @@ a:hover{
     cursor:pointer;
 }
 
-span:hover {
-    color:#000000;
+/*span:hover {*/
+/*    color:#000000;*/
+/*}*/
+
+.invalid-feedback{
+    color:red;
+    font-size:10px;
 }
+
 
 ul {
     list-style:none;
@@ -191,9 +197,12 @@ section {
 }
 
 .register_input,.login_input {
-    margin:15px 0 20px;
     width:290px;
     padding:5px;
+}
+
+.register_input_box,.login_input_box {
+    margin:15px 0 20px;
 }
 
 .register_button,.login_button {

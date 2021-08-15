@@ -17,7 +17,8 @@
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+// Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/','ThemeController@index');
 Route::get('/new','ThemeController@new');
@@ -31,6 +32,7 @@ Route::put('/themes/{theme}/posts/{post}/comments/{comment}','CommentController@
 Route::delete('/themes/{theme}/posts/{post}/comments/{comment}','CommentController@destroy');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/home', 'HomeController@index')->name('home');
     Route::post('/themes','ThemeController@store');
     Route::get('/themes/{theme}/edit','ThemeController@edit');
     Route::put('/themes/{theme}','ThemeController@update');

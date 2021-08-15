@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Theme;
-use App\Post;
-use App\Category;
-use App\User;
+use App\Models\Theme;
+use App\Models\Post;
+use App\Models\Category;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 

@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
-use App\Post;
-use App\Theme;
-use App\Comment;
-use App\Category;
-use App\User;
-use App\Like;
+use App\Models\Post;
+use App\Models\Theme;
+use App\Models\Comment;
+use App\Models\Category;
+use App\Models\User;
+use App\Models\Like;
+use App\Jobs\PutLike;
 use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
@@ -68,6 +69,14 @@ class PostController extends Controller
 
     public function like($id)
     {
+        //LIKEの非同期処理の試行錯誤
+        
+        // PutLike::dispatch($id);
+
+        // session()->flash('success','You Liked the Post');
+
+        // return redirect()->back();
+        
         Like::create([
           'post_id' => $id,
           'user_id' => Auth::id(),
